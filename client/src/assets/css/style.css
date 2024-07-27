@@ -1,0 +1,25 @@
+/* Google Font import */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+.red-hat-display-normal {
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.red-hat-display-bold{
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Utility Classes */
+:root {
+    --light-color: #F9F9F9;
+    --dark-color: #49454F;
+    --accent-color-yel: #FDB301;
+    --accent-color-oran: #F58202;
+}
+
