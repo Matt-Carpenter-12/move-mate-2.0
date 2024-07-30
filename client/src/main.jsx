@@ -2,7 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+
 import LandingPage from './Components/LandingPage.jsx'
+import AboutUs from './Components/AboutUs.jsx'
+import Login from './Components/login.jsx'
+import SignUp from './Components/SignUp.jsx'
+import Homepage from './Components/Homepage.jsx'
+import MyWorkouts from './Components/MyWorkouts.jsx'
+import Log from './Components/Log.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,9 +46,7 @@ const router = createBrowserRouter([
       },
     ]
   }
-])
-
-
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
