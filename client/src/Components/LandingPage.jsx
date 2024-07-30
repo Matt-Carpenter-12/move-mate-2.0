@@ -1,4 +1,4 @@
-import NavTabs from './Components/NavTabs'
+import NavTabs from './NavTabs'
 
 function LandingPage() {
     return (
