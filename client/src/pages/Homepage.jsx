@@ -1,4 +1,4 @@
-import HomeTabs from './HomeTabs';
+import HomeTabs from '../Components/HomeTabs';
 
 function Homepage() {
     return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-import { createUser } from '../Components';
+import { createUser } from 'react'; //was components but didnt work. Not sure where this is getting from?
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
