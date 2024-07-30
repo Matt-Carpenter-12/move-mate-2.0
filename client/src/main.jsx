@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
-
+//importing pages 
 import LandingPage from './pages/LandingPage.jsx'
 import AboutUs from './pages/AboutUs.jsx'
 import Login from './pages/Login.jsx'
@@ -12,6 +12,7 @@ import Homepage from './pages/Homepage.jsx'
 import MyWorkouts from './pages/MyWorkouts.jsx'
 import Log from './pages/Log.jsx'
 
+//creating router for pages to go to
 const router = createBrowserRouter([
   {
     path: '/',
