@@ -1,42 +1,43 @@
 import { Link, useLocation } from 'react-router-dom';
 import logo from "../assets/images/move-mate-logo.jpeg";
 
-function NavTabs() {
+function HomeTabs() {
   const currentPage = useLocation().pathname;
+
   return (
     <nav>
       <img src={logo} alt="Move Mate Logo" />
       <ul className="nav nav-tabs">
-      <li className="nav-item">
+        <li className="nav-item">
           <Link
-            to="/"
-            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+            to="/Homepage"
+            className={currentPage === '/Homepage' ? 'nav-link active' : 'nav-link'}
           >
             Home
           </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/About-Us"
-            className={currentPage === '/About-Us' ? 'nav-link active' : 'nav-link'}
+            to="/My-Workouts"
+            className={currentPage === '/My-Workouts' ? 'nav-link active' : 'nav-link'}
           >
-            About Us
+            My Workouts
           </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/Login"
-            className={currentPage === '/Login' ? 'nav-link active' : 'nav-link'}
+            to="/Log"
+            className={currentPage === '/Log' ? 'nav-link active' : 'nav-link'}
           >
-            Login
+            Workout History
           </Link>
         </li>
         <li className="nav-item">
           <Link
-            to="/Sign-Up"
-            className={currentPage === '/Sign-Up' ? 'nav-link active' : 'nav-link'}
+            to="/"
+            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
           >
-            Sign Up
+            Log Out
           </Link>
         </li>
       </ul>
@@ -44,4 +45,4 @@ function NavTabs() {
   );
 }
 
-export default NavTabs;
+export default HomeTabs;
