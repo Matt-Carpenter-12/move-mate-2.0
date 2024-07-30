@@ -27,8 +27,7 @@ function App() {
   return (
     <>
      {content}
-     <SignUp />
-     {/* <Questionnaire /> */}
+     <Questionnaire />
     </>
   )
 }

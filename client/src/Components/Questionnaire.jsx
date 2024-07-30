@@ -6,7 +6,6 @@ const Questionnaire = ({props}) => {
     return(
         <Form>
         <fieldset>
-        
         <Form.Group className="mb-3">
           <Form.Label> Select workout type:</Form.Label>
           <Form.Select id="disabledSelect">
