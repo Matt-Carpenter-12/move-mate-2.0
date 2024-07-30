@@ -36,11 +36,7 @@ const Questionnaire = ({props}) => {
             <option>7</option>
           </Form.Select>
         </Form.Group>
-        <Form.Check
-            type="switch"
-            id="custom-switch"
-            label="Notify me reminders of my workout"
-        />
+        
         <Button type="submit">Submit</Button>
       </fieldset>
     </Form>

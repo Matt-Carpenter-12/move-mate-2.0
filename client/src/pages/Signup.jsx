@@ -96,6 +96,11 @@ const SignupForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        <Form.Check
+            type="switch"
+            id="custom-switch"
+            label="Notify me reminders of my workout"
+        />
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
