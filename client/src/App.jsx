@@ -5,7 +5,7 @@ import Homepage from './Components/Homepage'
 import LandingPage from './Components/LandingPage';
 import Login from './Components/login'
 import Questionnaire from './Components/Questionnaire';
-
+import SignUp from './Components/SignUp';
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
   return (
     <>
      {content}
+     <Questionnaire />
     </>
   )
 }
