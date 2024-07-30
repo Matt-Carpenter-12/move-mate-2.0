@@ -38,11 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/My-Workouts',
-        elemetn: <MyWorkouts />
+        element: <MyWorkouts />
       },
       {
         path: '/Log',
-        elemetn: <Log />
+        element: <Log />
       },
     ]
   }
