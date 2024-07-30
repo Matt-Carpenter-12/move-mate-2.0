@@ -7,20 +7,20 @@ function NavTabs() {
     <nav>
       <img src={logo} alt="Move Mate Logo" />
       <ul className="nav nav-tabs">
+      <li className="nav-item">
+          <Link
+            to="/"
+            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+          >
+            Home
+          </Link>
+        </li>
         <li className="nav-item">
           <Link
             to="/About-Us"
             className={currentPage === '/About-Us' ? 'nav-link active' : 'nav-link'}
           >
             About Us
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/Contact"
-            className={currentPage === '/Contact' ? 'nav-link active' : 'nav-link'}
-          >
-            Contact
           </Link>
         </li>
         <li className="nav-item">

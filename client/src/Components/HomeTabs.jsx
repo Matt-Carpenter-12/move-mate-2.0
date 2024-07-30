@@ -10,8 +10,8 @@ function HomeTabs() {
       <ul className="nav nav-tabs">
         <li className="nav-item">
           <Link
-            to="/"
-            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+            to="/Homepage"
+            className={currentPage === '/Homepage' ? 'nav-link active' : 'nav-link'}
           >
             Home
           </Link>
@@ -34,8 +34,8 @@ function HomeTabs() {
         </li>
         <li className="nav-item">
           <Link
-            to="/LandingPage"
-            className={currentPage === '/LandingPage' ? 'nav-link active' : 'nav-link'}
+            to="/"
+            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
           >
             Log Out
           </Link>

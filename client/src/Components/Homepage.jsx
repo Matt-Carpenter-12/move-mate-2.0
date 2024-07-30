@@ -1,4 +1,3 @@
-import NavTabs from './Components/NavTabs'
 
 
 function Homepage() {
@@ -8,3 +7,5 @@ function Homepage() {
         </>
     )
 }
+
+export default Homepage;
