@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { createUser } from '../utils/auth'; 
+import { createUser } from '../utils/API'; 
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
@@ -88,12 +88,12 @@ const SignupForm = () => {
             id="custom-switch"
             label="Notify me reminders of my workout"
         />
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
-          Submit
-        </Button>
+        <Link to='/Questionnaire'>
+          <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
+            Submit
+          </Button>
+        </Link>
+        
       </Form>
     </>
   );

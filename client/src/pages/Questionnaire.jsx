@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 const Questionnaire = () => {
-  const [showLevel, setShowLevel] = useState(false);
-  const [showConsistency, setShowConsistency] = useState(false);
+  const [Level, setLevel] = useState(false);
+  const [Consistency, setConsistency] = useState(false);
 
+  //shows level after selection from previous question has been made
   const handleTypeInput = (e) => {
       if (e.target.value !== 'Select one') {
-          setShowLevel(true);
+          setLevel(true);
       } else {
-          setShowLevel(false);
-          setShowConsistency(false);
+          setLevel(false);
+          setConsistency(false);
       }
   };
-
+  //shows consistency after selection from previous question has been made
   const handleLevelInput = (e) => {
       if (e.target.value !== 'Select one') {
-          setShowConsistency(true);
+          setConsistency(true);
       } else {
-          setShowConsistency(false);
+          setConsistency(false);
       }
   };
 
@@ -37,7 +39,7 @@ const Questionnaire = () => {
                   </Form.Select>
               </Form.Group>
 
-              {showLevel && (
+              {Level && (
                   <Form.Group className="mb-3">
                       <Form.Label>Select fitness level:</Form.Label>
                       <Form.Select onChange={handleLevelInput}>
@@ -49,7 +51,7 @@ const Questionnaire = () => {
                   </Form.Group>
               )}
 
-              {showConsistency && (
+              {Consistency && (
                   <Form.Group className="mb-3">
                       <Form.Label>Workout days per week:</Form.Label>
                       <Form.Select>
@@ -63,7 +65,9 @@ const Questionnaire = () => {
                   </Form.Group>
               )}
 
+              <Link to='/Homepage'>
               <Button type="submit">Submit</Button>
+              </Link>
           </fieldset>
       </Form>
   );
