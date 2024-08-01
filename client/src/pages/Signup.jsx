@@ -3,6 +3,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { createUser } from '../utils/API'; 
 import Auth from '../utils/auth';
+import NavTabs from '../Components/NavTabs'
+
 
 const SignupForm = () => {
   // set initial form state
@@ -49,7 +51,8 @@ const SignupForm = () => {
   };
 
   return (
-    <>
+    <div className='signup-page' id="signup">
+      <NavTabs />
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -95,7 +98,7 @@ const SignupForm = () => {
         </Link>
         
       </Form>
-    </>
+    </div>
   );
 };
 

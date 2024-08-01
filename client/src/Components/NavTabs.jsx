@@ -1,47 +1,67 @@
-import { Link, useLocation } from 'react-router-dom';
 import logo from "../assets/images/move-mate-logo.jpeg";
+import { useState, useEffect } from "react";
+import { Container, Nav } from "react-bootstrap";
+import Navbar from 'react-bootstrap/Navbar';
 
-function NavTabs() {
-  const currentPage = useLocation().pathname;
-  return (
-    <nav>
-      <img src={logo} alt="Move Mate Logo" />
-      <ul className="nav nav-tabs">
-      <li className="nav-item">
-          <Link
-            to="/"
-            className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
-          >
+const NavTabs = () => {
+    const [currentLink, setCurrentLink] = useState('home');
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true)
+            } else {
+                setScrolled(false)
+            }
+        }
+
+        window.addEventListener("scroll", onScroll)
+
+        return () => window.removeEventListener("scroll", onScroll)
+    }, [])
+
+    const onUpdateCurrentLink = (value) => {
+        setCurrentLink(value);
+    }
+    
+    return (
+        <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+          <Container>
+            <Navbar.Brand href="/">
+              <img src={logo} alt="Move Mate Logo" className="logo" />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav">
+                <span className="navbar-toggler-icon"></span>
+            </Navbar.Toggle>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+          <Nav.Link
+            href="/"
+            className={currentLink === '/' ? 'nav-link active' : 'nav-link'}
+            onClick={() => onUpdateCurrentLink('/')}>
             Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/About-Us"
-            className={currentPage === '/About-Us' ? 'nav-link active' : 'nav-link'}
-          >
+          </Nav.Link>
+          <Nav.Link
+            href="/About-Us"
+            className={currentLink === '/About-Us' ? 'nav-link active' : 'nav-link'}
+            onClick={() => onUpdateCurrentLink('/About-Us')}>
             About Us
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/Login"
-            className={currentPage === '/Login' ? 'nav-link active' : 'nav-link'}
-          >
+          </Nav.Link>
+          <Nav.Link
+            href="/Login"
+            className={currentLink === '/Login' ? 'nav-link active' : 'nav-link'}
+            onClick={() => onUpdateCurrentLink('Login')}>
             Login
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/Sign-Up"
-            className={currentPage === '/Sign-Up' ? 'nav-link active' : 'nav-link'}
-          >
-            Sign Up
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  );
+          </Nav.Link>
+          </Nav>
+                <span className="navbar-text">
+                  <button className="vvd" onClick={()=>console.log('sign me up!')}><a href='/Sign-Up'><span>Sign Up</span></a></button>
+                </span>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      );
 }
 
 export default NavTabs;

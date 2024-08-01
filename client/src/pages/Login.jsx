@@ -1,8 +1,11 @@
 import  'bootstrap/dist/css/bootstrap.min.css';
+import NavTabs from '../Components/NavTabs'
+
 
 function Login() {
     return (
         <div>
+            <NavTabs />
             <h1 className="login-header">SIGN IN TO YOUR MOVE MATE ACCOUNT</h1>
             <form>
                 <div className="mb-3">
