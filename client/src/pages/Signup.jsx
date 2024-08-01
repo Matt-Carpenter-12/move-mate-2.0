@@ -3,6 +3,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { createUser } from '../utils/API'; 
 import Auth from '../utils/auth';
+import NavTabs from '../Components/NavTabs'
+
 
 const SignupForm = () => {
   // set initial form state
@@ -49,7 +51,8 @@ const SignupForm = () => {
   };
 
   return (
-    <>
+    <div className='signup-page' id="signup">
+      <NavTabs />
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -62,12 +65,15 @@ const SignupForm = () => {
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Your email address'
+            placeholder='Enter Email Address'
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
             required
           />
+          <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
@@ -86,7 +92,7 @@ const SignupForm = () => {
         <Form.Check
             type="switch"
             id="custom-switch"
-            label="Notify me reminders of my workout"
+            label="Send me reminders to workout"
         />
         <Link to='/Questionnaire'>
           <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
@@ -95,7 +101,7 @@ const SignupForm = () => {
         </Link>
         
       </Form>
-    </>
+    </div>
   );
 };
 

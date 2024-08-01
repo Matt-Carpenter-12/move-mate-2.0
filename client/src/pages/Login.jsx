@@ -1,11 +1,13 @@
+import '../assets/css/login.css'
+import NavTabs from '../Components/NavTabs'
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../utils/API'; 
-import Auth from '../utils/auth';
-import  'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
 
 function Login() {
+
      // set initial form state
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   // set state for form validation
@@ -48,53 +50,58 @@ function Login() {
       password: '',
     });
   };
-    return (<>
-        {/* This is needed for the validation functionality above */}
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-          {/* show alert if server response is bad */}
-          <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-            Something went wrong with your signup!
-          </Alert>
-           <h3>Please sign into your account</h3>
-  
-          <Form.Group className='mb-3'>
-            <Form.Label htmlFor='email'>Email</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Your email address'
-              name='email'
-              onChange={handleInputChange}
-              value={userFormData.email}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-          </Form.Group>
-  
-          <Form.Group className='mb-3'>
-            <Form.Label htmlFor='password'>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Your password'
-              name='password'
-              onChange={handleInputChange}
-              value={userFormData.password}
-              required
-            />
-            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Check
-              type="switch"
-              id="custom-switch"
-              label="Notify me reminders of my workout"
+
+
+
+    return (
+        <div>
+            <NavTabs />
+            <div className="login-body">
+                <h1 className="login-header"><span className='accent-color'>SIGN IN</span> <span className="light-color">TO YOUR MOVE MATE ACCOUNT</span></h1>
+                <Card body className='login-card'>
+                <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* show alert if server response is bad */}
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          Something went wrong with your signup!
+        </Alert>
+         
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Control
+            type='email'
+            placeholder='Enter Email Address'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
           />
-          <Link to='/Questionnaire'>
-            <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
-              Submit
-            </Button>
-          </Link>
-          
-        </Form>
-      </>
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Control
+            type='password'
+            placeholder='Your password'
+            name='password'
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Check type="checkbox" label="Remember Me" />
+        <Link to='/Homepage'>
+          <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className="btn login-btn">
+            Submit
+          </Button>
+        </Link>
+        
+      </Form>
+              </Card>
+              </div>
+        </div>
     )
 }
 
