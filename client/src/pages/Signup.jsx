@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { createUser } from '../utils/API'; 
 import Auth from '../utils/auth';
 import NavTabs from '../Components/NavTabs'
-
+import Card from 'react-bootstrap/Card';
+import '../assets/css/login.css'
 
 const SignupForm = () => {
   // set initial form state
@@ -51,56 +52,59 @@ const SignupForm = () => {
   };
 
   return (
-    <div className='signup-page' id="signup">
+    <div>
       <NavTabs />
-      {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
-        </Alert>
-         
-
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter Email Address'
-            name='email'
-            onChange={handleInputChange}
-            value={userFormData.email}
-            required
-          />
-          <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Check
-            type="switch"
-            id="custom-switch"
-            label="Send me reminders to workout"
-        />
-        <Link to='/Questionnaire'>
-          <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
-            Submit
-          </Button>
-        </Link>
-        
-      </Form>
+      
+      <div className="signup-body">
+        <h1 className="signup-header"><span className='accent-color'>SIGN UP TODAY</span> <span className="light-color">FOR YOUR MOVE MATE ACCOUNT</span></h1>
+        <Card body className='signup-card'>
+          {/* This is needed for the validation functionality above */}
+          <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            {/* show alert if server response is bad */}
+            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+              Something went wrong with your signup!
+            </Alert>
+            <Form.Group className='mb-3'>
+              <Form.Label htmlFor='email'>Email</Form.Label>
+              <Form.Control
+                type='email'
+                placeholder='Enter Email Address'
+                name='email'
+                onChange={handleInputChange}
+                value={userFormData.email}
+                required
+              />
+              <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+              <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label htmlFor='password'>Password</Form.Label>
+              <Form.Control
+                type='password'
+                placeholder='Enter Password'
+                name='password'
+                onChange={handleInputChange}
+                value={userFormData.password}
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Check
+                type="switch"
+                id="custom-switch"
+                label="Send me reminders to workout"
+            />
+            <Link to='/Questionnaire'>
+              <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
+                SIGN UP
+              </Button>
+            </Link>
+            
+          </Form>
+        </Card>
+      </div>
     </div>
   );
 };
