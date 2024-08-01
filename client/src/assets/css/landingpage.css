@@ -1,0 +1,50 @@
+/* Landing Page CSS */
+.landing-page-body {
+  margin-top: 100px;
+  background-image: url("../images/landingpagebg2.jpg");
+  background-position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing-page-body  h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  display: block;
+}
+.landing-page-body  h1.header1{
+  margin-top: 300px;
+}
+
+.landing-page-body  h1.header1,
+.landing-page-body  h1.header2{
+  color: var(--light-color);
+}
+
+.landing-page-body  h1.header3 {
+  color: var(--accent-color-oran)
+}
+
+.landing-page-body  button a {
+    text-decoration: none;
+    color: var(--accent-color-oran);
+    font-weight: 700;
+    font-size: 20px;
+    /* margin-top: 400px; */
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+}
+
+.landing-page-body  button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+
+.landing-page-body  button:hover svg {
+  margin-left: 25px;
+}
