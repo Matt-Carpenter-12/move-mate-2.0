@@ -11,6 +11,7 @@ import SignUp from './pages/Signup.jsx'
 import Homepage from './pages/Homepage.jsx'
 import MyWorkouts from './pages/MyWorkouts.jsx'
 import Log from './pages/Log.jsx'
+import Questionnaire from './pages/Questionnaire.jsx'
 
 //creating router for pages to go to
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/Sign-Up',
         element: <SignUp/>
+      },
+      {
+        path: '/Questionnaire',
+        element: <Questionnaire/>
       },
       {
         path: '/Homepage',
