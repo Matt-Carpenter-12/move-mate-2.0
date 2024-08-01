@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
+//importing pages 
+import LandingPage from './pages/LandingPage.jsx'
+import AboutUs from './pages/AboutUs.jsx'
+import Login from './pages/Login.jsx'
+import SignUp from './pages/Signup.jsx'
+import Homepage from './pages/Homepage.jsx'
+import MyWorkouts from './pages/MyWorkouts.jsx'
+import Log from './pages/Log.jsx'
+import Questionnaire from './pages/Questionnaire.jsx'
 
-import LandingPage from './Components/LandingPage.jsx'
-import AboutUs from './Components/AboutUs.jsx'
-import Login from './Components/login.jsx'
-import SignUp from './Components/SignUp.jsx'
-import Homepage from './Components/Homepage.jsx'
-import MyWorkouts from './Components/MyWorkouts.jsx'
-import Log from './Components/Log.jsx'
-
+//creating router for pages to go to
 const router = createBrowserRouter([
   {
     path: '/',
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/Sign-Up',
         element: <SignUp/>
+      },
+      {
+        path: '/Questionnaire',
+        element: <Questionnaire/>
       },
       {
         path: '/Homepage',
