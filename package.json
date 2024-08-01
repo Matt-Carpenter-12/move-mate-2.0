@@ -8,7 +8,7 @@
     "install": "cd server && npm i && cd ../client && npm i --production=false",
     "build": "cd client && npm run build",
     "render-build": "npm install && npm run build",
-    "develop": "concurrently \"cd server && npm start\" \"cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
