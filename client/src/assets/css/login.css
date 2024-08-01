@@ -1,5 +1,6 @@
 /* Login page CSS */
-.login-body{
+.login-body,
+.signup-body {
     margin-top:100px;
     background-image: url("../images/landingpagebg2.jpg");
     background-position: absolute;
@@ -7,13 +8,15 @@
     background-repeat: no-repeat;
 }
 
-.login-card {
+.login-card,
+.signup-card {
     margin:0 14%;
     width: 70%;
     padding: 20px;
 }
 
-.login-body h1.login-header{
+.login-body h1.login-header,
+.signup-body h1.signup-header{
     font-weight: 700;
     text-align: center;
     margin: 120px 0 20px 0;
@@ -26,9 +29,12 @@ span.light-color {
     color: var(--light-color);
 }
 
-button.login-btn {
-    font-weight: 700;;
-    background-color: var(--accent-color-oran);
+button.login-btn, 
+button.signup-btn {
+    font-weight: 700;
+    background-color: var(--accent-color-oran) !important;
+    border: none;
     padding: 10px 15px;
+    margin-top: 20px; 
     align-items: center;
 }
