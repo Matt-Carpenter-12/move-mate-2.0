@@ -1,11 +1,10 @@
+import '../assets/css/login.css'
+import NavTabs from '../Components/NavTabs'
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../utils/API'; 
 import Card from 'react-bootstrap/Card';
-import Auth from '../utils/auth';
-import NavTabs from '../Components/NavTabs'
-import '../assets/css/login.css'
 
 function Login() {
 
