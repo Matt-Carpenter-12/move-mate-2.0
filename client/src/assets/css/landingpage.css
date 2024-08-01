@@ -1,7 +1,7 @@
 /* Landing Page CSS */
 .landing-page-body {
-  margin-top: 110px;
-  background-image: url("../images/landingbg.jpg");
+  margin-top: 100px;
+  background-image: url("../images/landingpagebg2.jpg");
   background-position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 
 .landing-page-body  h1.header1,
 .landing-page-body  h1.header2{
-  color: var(--dark-color);
+  color: var(--light-color);
 }
 
 .landing-page-body  h1.header3 {
