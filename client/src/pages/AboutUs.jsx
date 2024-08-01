@@ -1,7 +1,10 @@
+import NavTabs from '../Components/NavTabs'
+
+
 function AboutUs() {
     return (
         <>
-        
+            <NavTabs />
         </>
     )
 }
