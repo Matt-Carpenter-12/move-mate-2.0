@@ -1,0 +1,34 @@
+/* Login page CSS */
+.login-body{
+    margin-top:100px;
+    background-image: url("../images/landingpagebg2.jpg");
+    background-position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-card {
+    margin:0 14%;
+    width: 70%;
+    padding: 20px;
+}
+
+.login-body h1.login-header{
+    font-weight: 700;
+    text-align: center;
+    margin: 120px 0 20px 0;
+}
+
+span.accent-color {
+    color: var(--accent-color-oran);
+}
+span.light-color {
+    color: var(--light-color);
+}
+
+button.login-btn {
+    font-weight: 700;;
+    background-color: var(--accent-color-oran);
+    padding: 10px 15px;
+    align-items: center;
+}
