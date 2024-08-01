@@ -1,3 +1,5 @@
+/* CSS for all components */
+
 /* Reset Css */
 * {
   margin: 0;
@@ -72,20 +74,24 @@ nav.navbar.scrolled {
   background-color: var(--dark-color);
 }
 
+
 nav.navbar a.navbar-brand {
   width: 14%;
   height: auto;
-  margin-left: -200px;
 }
 
 nav.navbar .navbar-nav .nav-link {
   font-weight: 400;
-  color: var(--dark-color) !important;
+  color: var(--dark-color);
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
   opacity: 0.75;
   align-items: end;
+}
+
+nav.navbar.scrolled .navbar-nav .nav-link {
+  color: var(--accent-color-yel);
 }
 
 nav.navbar .navbar-nav .nav-link:hover,
