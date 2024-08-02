@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "install": "cd server && npm i && cd ../client && npm i --production=false",
+    "install": "cd server NODE_ENV=development && npm i && cd ../client NODE_ENV=development && npm i",
     "build": "cd client && npm run build",
     "render-build": "npm install && npm run build",
-    "develop": "concurrently \"cd server && npm start\" \"cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

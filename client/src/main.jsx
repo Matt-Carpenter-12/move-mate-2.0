@@ -26,31 +26,31 @@ const router = createBrowserRouter([
         element: <LandingPage />
       },
       {
-        path: '/About-Us',
+        path: 'about-us',
         element: <AboutUs />
       },
       {
-        path: '/Login',
+        path: 'login',
         element: <Login />
       },
       {
-        path: '/Sign-Up',
+        path: 'sign-up',
         element: <SignUp/>
       },
       {
-        path: '/Questionnaire',
+        path: 'questionnaire',
         element: <Questionnaire/>
       },
       {
-        path: '/Homepage',
+        path: 'homepage',
         element: <Homepage />
       },
       {
-        path: '/My-Workouts',
+        path: 'my-workouts',
         element: <MyWorkouts />
       },
       {
-        path: '/Log',
+        path: 'log',
         element: <Log />
       },
     ]
