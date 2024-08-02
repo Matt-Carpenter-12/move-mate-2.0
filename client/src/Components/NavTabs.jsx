@@ -40,23 +40,23 @@ const NavTabs = () => {
             href="/"
             className={currentLink === '/' ? 'nav-link active' : 'nav-link'}
             onClick={() => onUpdateCurrentLink('/')}>
-            Home
+            HOME
           </Nav.Link>
           <Nav.Link
             href="/About-Us"
             className={currentLink === '/About-Us' ? 'nav-link active' : 'nav-link'}
             onClick={() => onUpdateCurrentLink('/About-Us')}>
-            About Us
+            ABOUT US
           </Nav.Link>
           <Nav.Link
             href="/Login"
             className={currentLink === '/Login' ? 'nav-link active' : 'nav-link'}
             onClick={() => onUpdateCurrentLink('Login')}>
-            Login
+            LOGIN
           </Nav.Link>
           </Nav>
                 <span className="navbar-text">
-                  <button className="vvd" onClick={()=>console.log('sign me up!')}><a href='/Sign-Up'><span>Sign Up</span></a></button>
+                  <button className="vvd" onClick={()=>console.log('sign me up!')}><a href='/Sign-Up'><span>SIGN UP</span></a></button>
                 </span>
             </Navbar.Collapse>
           </Container>

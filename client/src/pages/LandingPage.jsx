@@ -7,7 +7,8 @@ function LandingPage() {
     return (
         <>
             <NavTabs />
-            <Container className='landing-page-body'>
+            <div className="landing-page-body">
+            <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={12} xl={12}>
                         <h1 className='header1'>PREPARE TO</h1>
@@ -27,6 +28,7 @@ function LandingPage() {
                     </Col>
                 </Row>
             </Container>
+            </div>
         </>
     )
 }

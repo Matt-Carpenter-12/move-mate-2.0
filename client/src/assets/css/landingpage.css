@@ -1,10 +1,11 @@
 /* Landing Page CSS */
 .landing-page-body {
-  margin-top: 100px;
+  margin: 99px 0 70px 0;
   background-image: url("../images/landingpagebg2.jpg");
-  background-position: absolute;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
 }
 
 .landing-page-body  h1 {
