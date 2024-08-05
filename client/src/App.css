@@ -109,7 +109,7 @@ span.navbar-text {
   font-weight: 700;
   color: #fff;
   border-radius: 5px;
-  padding: 18px 34px;
+  padding: 10px 34px;
   font-size: 18px;
   margin-left: 18px;
 	position: relative;
@@ -170,7 +170,7 @@ nav.navbar .navbar-toggler-icon:after {
 .footer {
   background-color: var(--light-color);
   color: white;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;

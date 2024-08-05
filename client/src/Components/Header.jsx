@@ -54,12 +54,12 @@ const Header = () => {
                   onClick={() => onUpdateCurrentLink('Log')}>
                   WORKOUT LOG
                 </Nav.Link>
-                <Nav.Link
+                {/* <Nav.Link
                   href="/"
                   className={currentLink === '/' ? 'nav-link active' : 'nav-link'}
                   onClick={() => onUpdateCurrentLink('')}>
                   LOG OUT
-                </Nav.Link>
+                </Nav.Link> */}
                 </Nav>
                 <span className="navbar-text">
                   <button className="vvd logout-btn" onClick={()=>console.log('Ready to log out')}><a href='/'><span>LOG OUT</span></a></button>
