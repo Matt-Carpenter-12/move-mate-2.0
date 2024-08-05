@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,6 +10,28 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
+
+app.use(cors());
+
+//Fetchs the workout options from the third party api
+app.get('/workouts', (req, res) => {
+  const url = 'https://work-out-api1.p.rapidapi.com/search?Muscles=chest&Intensity_Level=Beginner';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': process.env.API_KEY,
+            'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
+        }
+    }
+
+    fetch(url, options)
+    .then(response => response.json())
+    .then(data => {
+      res.json(data)
+        console.log(data[0]);
+    })
+    .catch(err => console.error(err.message))
+});
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
