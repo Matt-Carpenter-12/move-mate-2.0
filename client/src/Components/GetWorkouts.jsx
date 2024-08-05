@@ -23,6 +23,23 @@ function GetWorkouts() {
 
     return (
         <>
+            {exercises.map((w, index) => {
+                return (
+                    <>
+                        <Card className="card" key={index} style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body key={index}>
+                                <Card.Title>{w.WorkOut}</Card.Title>
+                                <Card.Text>
+                                    {w.Explaination}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+
+                    </>
+                )
+
+            })}
         </>
     )
 }
