@@ -1,0 +1,26 @@
+.btn-color {
+    background-color: #f78605;
+    border-color: var(--accent-color-oran);
+   
+}
+
+.btn-color:hover {
+    background-color: #e17c09;
+    border-color: var(--accent-color-oran);
+}
+
+.card {
+    /* background-color: #fdb101; */
+    background-color: #ee952fc8;
+    color: white;
+    margin-bottom: 20px;
+    
+}
+
+Card {
+    margin-bottom: 10px;
+}
+/* 
+container {
+    display: flex;
+} */
