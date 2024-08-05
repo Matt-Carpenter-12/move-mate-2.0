@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Modal from 'react-bootstrap/Modal';
-
+import "../assets/css/getWorkouts.css";
 
 function GetWorkouts() {
     const [show, setShow] = useState(false);
