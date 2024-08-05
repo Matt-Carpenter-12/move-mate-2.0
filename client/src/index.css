@@ -21,8 +21,11 @@
     --dark-color: #49454F;
     --accent-color-yel: #FDB301;
     --accent-color-oran: #F58202;
+    --accent-color-oran-transparent: rgb(251, 138, 9, 0.25)
 }
 
+html,
 body{
   margin: 0;
+  box-sizing: border-box !important;
 }

@@ -5,6 +5,7 @@ function AboutUs() {
     return (
         <>
             <NavTabs />
+            
         </>
     )
 }

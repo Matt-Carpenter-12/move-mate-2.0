@@ -1,11 +1,13 @@
 /* Login page CSS */
 .login-body,
 .signup-body {
-    margin-top:100px;
+    margin:99px 0 70px 0;
     background-image: url("../images/landingpagebg2.jpg");
-    background-position: absolute;
+    position: relative;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 590px;
 }
 
 .login-card,
@@ -19,7 +21,8 @@
 .signup-body h1.signup-header{
     font-weight: 700;
     text-align: center;
-    margin: 120px 0 20px 0;
+    margin: 10px 0 20px 0;
+    padding-top: 50px;
 }
 
 span.accent-color {

@@ -6,13 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    //need to fix
-    <div className="flex-column justify-flex-start min-100-vh">
-        {/* <Header /> */}
-        <div className="container">
-          <Outlet />
-        </div>
-        {/* <Footer /> */}
+    <div >
+        <Outlet />
+        <Footer />
       </div>
   );
 }
