@@ -6,7 +6,7 @@ import '../assets/css/landingpage.css'
 function LandingPage() {
     return (
         <>
-            <NavTabs />
+            
             <div className="landing-page-body">
             <Container>
                 <Row className="align-items-center">

@@ -53,7 +53,7 @@ const SignupForm = () => {
 
   return (
     <div>
-      <NavTabs />
+
       
       <div className="signup-body">
         <h1 className="signup-header"><span className='accent-color'>SIGN UP TODAY</span> <span className="light-color">FOR YOUR MOVE MATE ACCOUNT</span></h1>
