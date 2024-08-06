@@ -12,7 +12,6 @@ const Questionnaire = () => {
   const [workoutDays, setWorkoutDays] = useState('');
   const [showEquipment, setShowEquipment] = useState(false);
   const [showConsistency, setShowConsistency] = useState(false);
-  const [value, setValue] = useState([]);
 
   //shows Equipment after selection from previous question has been made
   const handleTypeInput = (e) => {
@@ -27,7 +26,6 @@ const Questionnaire = () => {
   };
   //shows consistency after selection from previous question has been made
   const handleEquipmentInput = (val) => {
-      setValue(val);
       setEquipment(val);
       if (val.length > 0) {
           setShowConsistency(true);
@@ -72,20 +70,20 @@ const Questionnaire = () => {
                 {showEquipment && (
                     <Form.Group className="mb-3">
                         <Form.Label>Select fitness Equipment:</Form.Label>
-                            <ToggleButtonGroup type="checkbox" value={value} onChange={handleEquipmentInput}>
-                                <ToggleButton id="dumbbells" value={1}>
+                            <ToggleButtonGroup type="checkbox" value={equipment} onChange={handleEquipmentInput}>
+                                <ToggleButton id="dumbbells" className='choice-btn' variant='warning' value='dumbbells'>
                                     Dumbbells
                                 </ToggleButton>
-                                <ToggleButton id="barbell" value={2}>
+                                <ToggleButton id="barbell" className='choice-btn' variant='warning' value='barbell'>
                                     Barbell
                                 </ToggleButton>
-                                <ToggleButton id="squat-rack" value={3}>
+                                <ToggleButton id="squat-rack" className='choice-btn' variant='warning' value='squat-rack'>
                                     Squat Rack
                                 </ToggleButton>
-                                <ToggleButton id="machines" value={4}>
+                                <ToggleButton id="machines" className='choice-btn' variant='warning' value="machines">
                                     Gym Machines
                                 </ToggleButton>
-                                <ToggleButton id="bench" value={5}>
+                                <ToggleButton id="bench" className='choice-btn' variant='warning' value='bench'>
                                     Bench
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -106,10 +104,9 @@ const Questionnaire = () => {
                     </Form.Group>
                 )}
 
+                <Link to='/Homepage'>
                 <Button type="submit" className='survey-btn'>Submit</Button>
-                {/* <Link to='/Homepage'>
-                <Button type="submit" className='survey-btn'>Submit</Button>
-                </Link> */}
+                </Link>
             </fieldset>
             </Form>
         </Card>
