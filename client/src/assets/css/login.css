@@ -50,3 +50,11 @@ button.survey-btn {
     margin-top: 20px; 
     align-items: center;
 }
+
+.choice-btn {
+    background-color: rgb(223, 128, 39) ;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
