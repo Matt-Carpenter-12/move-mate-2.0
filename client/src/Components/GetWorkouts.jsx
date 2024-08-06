@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import "../assets/css/getWorkouts.css";
 
@@ -35,7 +36,7 @@ function GetWorkouts() {
     return (
         <>
             <h1>Here are the workouts:</h1>
-            <container>
+            <Container>
                 <Row xs={1} md={3} className="g-2">
                     {Array.from({ length: 3 }).map((_, idx) => (
                         <Col key={idx}>
@@ -77,7 +78,7 @@ function GetWorkouts() {
                         </Button>
                     </Modal.Footer>
                 </Modal>
-            </container >
+            </Container >
         </>
     )
 }
