@@ -1,26 +1,51 @@
-.btn-color {
-    background-color: #f78605;
-    border-color: var(--accent-color-oran);
-   
+.workouts-header {
+    margin: 50px 0 30px 0;
+    text-align: center;
 }
 
-.btn-color:hover {
-    background-color: #e17c09;
-    border-color: var(--accent-color-oran);
-}
-
-.card {
-    /* background-color: #fdb101; */
-    background-color: #ee952fc8;
-    color: white;
-    margin-bottom: 20px;
+/* .workouts-col {
     
+} */
+.exercise-card {
+    background-color: var(--ligh-color) !important;
+    margin: 0 0 20px 30px;
+    width: 18rem;
+    border: 1px solid var(--dark-color-transparent);
+    border-radius: 10px;
 }
 
-Card {
-    margin-bottom: 10px;
+.exercise-body {
+    background-color: transparent;
+    border:none;
 }
-/* 
-container {
-    display: flex;
-} */
+
+.exercise-card-btn,
+.exercise-card-btn:active {
+    background-color: var(--dark-color) !important;
+    border:none;
+    margin-left: 1%;
+}
+
+.exercise-card-btn:hover {
+    background-color: var(--dark-color-transparent) !important;
+}
+
+.accent-btn,
+.accent-btn:active {
+    background-color: var(--accent-color-oran) !important;
+    border: none;
+}
+
+.accent-btn:hover {
+    background-color: var(--accent-color-oran-transparent) !important;
+}
+
+.modal-dialog {
+    top: 100px;
+}
+
+.modal-btn {
+    font-size: .85rem;
+    padding: 5px;
+    margin: 7px 10px 0 0;
+}

@@ -53,11 +53,10 @@ const SignupForm = () => {
 
   return (
     <div>
-
-      
+      <NavTabs />
       <div className="signup-body">
         <h1 className="signup-header"><span className='accent-color'>SIGN UP TODAY</span> <span className="light-color">FOR YOUR MOVE MATE ACCOUNT</span></h1>
-        <Card body className='signup-card'>
+        <Card className='signup-card'>
           {/* This is needed for the validation functionality above */}
           <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
             {/* show alert if server response is bad */}

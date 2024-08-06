@@ -1,6 +1,7 @@
 /* Login page CSS */
 .login-body,
-.signup-body {
+.signup-body,
+.survey-body {
     margin:99px 0 70px 0;
     background-image: url("../images/landingpagebg2.jpg");
     position: relative;
@@ -11,18 +12,25 @@
 }
 
 .login-card,
-.signup-card {
+.signup-card, 
+.survey-card {
     margin:0 14%;
     width: 70%;
     padding: 20px;
 }
 
 .login-body h1.login-header,
-.signup-body h1.signup-header{
+.signup-body h1.signup-header {
     font-weight: 700;
     text-align: center;
     margin: 10px 0 20px 0;
     padding-top: 50px;
+}
+
+.survey-body h1.survey-header {
+    background-color: rgba(0, 0, 0, 0.459);
+    text-align: center;
+    padding: 20px;
 }
 
 span.accent-color {
@@ -33,7 +41,8 @@ span.light-color {
 }
 
 button.login-btn, 
-button.signup-btn {
+button.signup-btn,
+button.survey-btn {
     font-weight: 700;
     background-color: var(--accent-color-oran) !important;
     border: none;
@@ -41,3 +50,16 @@ button.signup-btn {
     margin-top: 20px; 
     align-items: center;
 }
+
+.choice-btn {
+    background-color: rgb(223, 128, 39);
+    color: white;
+    border: none;
+    border-radius: 0px;
+    padding: 10px 10px;
+    margin: 10px 10px;
+}
+
+
+  
+ 

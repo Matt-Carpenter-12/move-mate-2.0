@@ -78,6 +78,10 @@ nav.navbar.scrolled {
   background-color: var(--dark-color);
 }
 
+nav.navbar.scrolled .search-btn {
+  background-color: var(--light-color) !important;
+}
+
 nav.navbar a.navbar-brand {
   width: 14%;
   height: auto;
@@ -86,8 +90,8 @@ nav.navbar a.navbar-brand {
 nav.navbar .navbar-nav .nav-link {
   font-weight: 400;
   color: var(--dark-color);
-  letter-spacing: 0.8px;
-  padding: 0px 25px 0 25px;
+  letter-spacing: 0.7px;
+  padding: 0px 12px;
   font-size: 18px;
 }
 
@@ -105,7 +109,7 @@ span.navbar-text {
     align-items: center;
 }
 
-.navbar-text button{
+.navbar-text button {
   font-weight: 700;
   color: #fff;
   border-radius: 5px;
@@ -117,9 +121,6 @@ span.navbar-text {
 	transition: 0.3s ease-in-out;
 }
 
-.navbar-text button .logout-btn {
-  padding: 10px !important;
-}
 .navbar-text a {
   text-decoration: none;
   color: var(--light-color) !important;
@@ -165,6 +166,28 @@ nav.navbar .navbar-toggler-icon:before {
 nav.navbar .navbar-toggler-icon:after {
 	top: 8px;
 }
+
+Form .search-input {
+  border-radius: 15px;
+  border: none;
+}
+
+Form .search-btn {
+  border-radius: 15px;
+  margin-left: -21px;
+  padding: 6.5px 11px;
+}
+
+Form .search-btn,
+Form .search-btn:active {
+  background-color: transparent !important;
+  border:none;
+}
+
+Form .search-btn:hover {
+  background-color: transparent !important;
+}
+
 
 /* Footer CSS */
 .footer {
