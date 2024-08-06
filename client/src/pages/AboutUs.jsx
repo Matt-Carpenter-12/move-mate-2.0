@@ -5,6 +5,15 @@ const aboutdata = [{
     img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: 'blah blah blah'
 }, {
     img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: 'blah blah blah'
+},{
+    img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: 'blah blah blah'
+
+},{
+    img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: 'blah blah blah'
+
+},{
+    img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: 'blah blah blah'
+
 }]
 
 function AboutUs() {
