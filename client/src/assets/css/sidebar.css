@@ -1,24 +1,27 @@
-Col {
-    margin: 0;
+.sidebar {
+    margin-top: 70px;
 }
 
-.sidebar {
-    margin: 70px 25px 0 -25px;
+.sidebar-col {
     border-right: 1px solid black;
 }
 
 .sidebar .dropdown-title {
     color: var(--dark-color);
-    margin-left: -10px;
+    margin: 15px 0 0 -10px;
 }
 
 .dropdown-item {
     color: var(--dark-color);
 }
 
-@media screen and (max-width: 1199px) {
-
-    .sidebar  {
-        margin: 0px;
+@media screen and (max-width: 991px) {
+    .sidebar {
+        margin-top: 50px;
+        border: none;
+    }
+    .sidebar-col {
+        text-align: center;
+        border: none;
     }
 }
