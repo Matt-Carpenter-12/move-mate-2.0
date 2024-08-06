@@ -71,19 +71,19 @@ const Questionnaire = () => {
                     <Form.Group className="mb-3">
                         <Form.Label>Select fitness Equipment:</Form.Label>
                             <ToggleButtonGroup type="checkbox" value={equipment} onChange={handleEquipmentInput}>
-                                <ToggleButton id="dumbbells" className='choice-btn' value='dumbbells'>
+                                <ToggleButton id="dumbbells" className='choice-btn' variant='warning' value='dumbbells'>
                                     Dumbbells
                                 </ToggleButton>
-                                <ToggleButton id="barbell" className='choice-btn' value='barbell'>
+                                <ToggleButton id="barbell" className='choice-btn' variant='warning' value='barbell'>
                                     Barbell
                                 </ToggleButton>
-                                <ToggleButton id="squat-rack" className='choice-btn' value='squat-rack'>
+                                <ToggleButton id="squat-rack" className='choice-btn' variant='warning' value='squat-rack'>
                                     Squat Rack
                                 </ToggleButton>
-                                <ToggleButton id="machines" className='choice-btn' value="machines">
+                                <ToggleButton id="machines" className='choice-btn' variant='warning' value="machines">
                                     Gym Machines
                                 </ToggleButton>
-                                <ToggleButton id="bench" className='choice-btn' value='bench'>
+                                <ToggleButton id="bench" className='choice-btn' variant='warning' value='bench'>
                                     Bench
                                 </ToggleButton>
                             </ToggleButtonGroup>

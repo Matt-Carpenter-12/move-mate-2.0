@@ -52,9 +52,14 @@ button.survey-btn {
 }
 
 .choice-btn {
-    background-color: rgb(223, 128, 39) ;
+    background-color: rgb(223, 128, 39);
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0px;
     padding: 10px 10px;
     margin: 10px 10px;
 }
+
+
+  
+ 
