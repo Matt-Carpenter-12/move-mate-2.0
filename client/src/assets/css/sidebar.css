@@ -1,3 +1,7 @@
+Col {
+    margin: 0;
+}
+
 .sidebar {
     margin: 70px 25px 0 -25px;
     border-right: 1px solid black;
@@ -10,4 +14,11 @@
 
 .dropdown-item {
     color: var(--dark-color);
+}
+
+@media screen and (max-width: 1199px) {
+
+    .sidebar  {
+        margin: 0px;
+    }
 }
