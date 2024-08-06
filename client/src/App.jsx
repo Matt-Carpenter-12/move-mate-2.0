@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div >
-      <NavTabs/>
         <Outlet />
         <Footer />
       </div>
