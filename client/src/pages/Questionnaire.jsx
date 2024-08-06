@@ -7,42 +7,50 @@ import Card from 'react-bootstrap/Card'
 
 
 const Questionnaire = () => {
-  const [fitnessLevel, setFitnessLevel] = useState('')
-  const [Equipment, setEquipment] = useState(false);
-  const [Consistency, setConsistency] = useState(false);
+  const [fitnessLevel, setFitnessLevel] = useState('');
+  const [equipment, setEquipment] = useState([]);
+  const [workoutDays, setWorkoutDays] = useState('');
+  const [showEquipment, setShowEquipment] = useState(false);
+  const [showConsistency, setShowConsistency] = useState(false);
   const [value, setValue] = useState([]);
 
   //shows Equipment after selection from previous question has been made
   const handleTypeInput = (e) => {
-      if (e.target.value !== 'Select one') {
-          setEquipment(true);
-      } else {
-          setEquipment(false);
-          setConsistency(false);
-      } 
+    const value = e.target.value;
+    setFitnessLevel(value);
+        if (value !== 'Select one') {
+            setShowEquipment(true);
+        } else {
+            setShowEquipment(false);
+            setShowConsistency(false);
+    }
   };
   //shows consistency after selection from previous question has been made
   const handleEquipmentInput = (val) => {
       setValue(val);
+      setEquipment(val);
       if (val.length > 0) {
-          setConsistency(true);
+          setShowConsistency(true);
       } else {
-          setConsistency(false);
+          setShowConsistency(false);
       } 
   };
 
+  //updates state of workout days
+  const handleConsistencyInput = (e) => {
+    setWorkoutDays(e.target.value);
+  };
+
+  //saves user input once submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // need to add validation to check required fields
-    //need to save user input data
-
     const formData = {
       fitnessLevel,
       equipment,
-      consistency,
+      workoutDays,
     };
     console.log('Form Data:', formData);
+    localStorage.setItem('formData', JSON.stringify(formData));
   };
 
   return (
@@ -53,7 +61,7 @@ const Questionnaire = () => {
             <fieldset>
                 <Form.Group className="mb-3">
                     <Form.Label>Select fitness level:</Form.Label>
-                    <Form.Select onChange={handleTypeInput}>
+                    <Form.Select value={fitnessLevel} onChange={handleTypeInput} required>
                             <option>Select one</option>
                             <option>beginner</option>
                             <option>intermediate</option>
@@ -61,7 +69,7 @@ const Questionnaire = () => {
                     </Form.Select>
                 </Form.Group>
 
-                {Equipment && (
+                {showEquipment && (
                     <Form.Group className="mb-3">
                         <Form.Label>Select fitness Equipment:</Form.Label>
                             <ToggleButtonGroup type="checkbox" value={value} onChange={handleEquipmentInput}>
@@ -84,10 +92,10 @@ const Questionnaire = () => {
                     </Form.Group>
                 )}
 
-                {Consistency && (
+                {showConsistency && (
                     <Form.Group className="mb-3">
                         <Form.Label>Workout days per week:</Form.Label>
-                        <Form.Select>
+                        <Form.Select value={workoutDays} onChange={handleConsistencyInput} required>
                             <option>Select one</option>
                             <option>3</option>
                             <option>4</option>
@@ -98,9 +106,10 @@ const Questionnaire = () => {
                     </Form.Group>
                 )}
 
-                <Link to='/Homepage'>
                 <Button type="submit" className='survey-btn'>Submit</Button>
-                </Link>
+                {/* <Link to='/Homepage'>
+                <Button type="submit" className='survey-btn'>Submit</Button>
+                </Link> */}
             </fieldset>
             </Form>
         </Card>
