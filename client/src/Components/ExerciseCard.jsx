@@ -64,7 +64,7 @@ function ExerciseCard() {
             ))}
 
             <Modal size="lg" show={show} onHide={handleClose}>
-                    {/* console.log(exercises[0].workout) */}
+                    console.log(exercises[0].workout)
 
                     <Modal.Header closeButton>
                         {/* <Modal.Title>Workout Title</Modal.Title> */}

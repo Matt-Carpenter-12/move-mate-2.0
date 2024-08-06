@@ -1,6 +1,7 @@
 import logo from "../assets/images/move-mate-logo.jpeg";
+import search from '../assets/images/searchicon.svg';
 import { useState, useEffect } from "react";
-import { Container, Nav } from "react-bootstrap";
+import { Container, Nav, Form, Row, Col, Button } from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
 
 const Header = () => {
@@ -54,16 +55,30 @@ const Header = () => {
                   onClick={() => onUpdateCurrentLink('Log')}>
                   WORKOUT LOG
                 </Nav.Link>
-                {/* <Nav.Link
+                <Nav.Link
                   href="/"
                   className={currentLink === '/' ? 'nav-link active' : 'nav-link'}
                   onClick={() => onUpdateCurrentLink('')}>
                   LOG OUT
-                </Nav.Link> */}
+                </Nav.Link>
                 </Nav>
-                <span className="navbar-text">
+                {/* <span className="navbar-text">
                   <button className="vvd logout-btn" onClick={()=>console.log('Ready to log out')}><a href='/'><span>LOG OUT</span></a></button>
-                </span>
+                </span> */}
+                <Form inline>
+                  <Row>
+                    <Col xs="auto">
+                      <Form.Control
+                        type="text"
+                        placeholder="Search Exercises..."
+                        className="mr-sm-2 search-input"
+                      />
+                    </Col>
+                    <Col xs="auto">
+                      <Button type="submit" className="search-btn btn"><img src={search} alt="search icon" /></Button>
+                    </Col>
+                  </Row>
+                </Form>
             </Navbar.Collapse>
           </Container>
         </Navbar>
