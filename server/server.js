@@ -23,7 +23,6 @@ app.get('/workouts', (req, res) => {
             'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
         }
     }
-
     fetch(url, options)
     .then(response => response.json())
     .then(data => {
