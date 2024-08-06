@@ -1,26 +1,17 @@
-.btn-color {
-    background-color: #f78605;
-    border-color: var(--accent-color-oran);
-   
+.exercise-card {
+    background-color: var(--accent-color-yel) !important;
+    color: white;
+    margin-bottom: 20px;
+    width: 18rem;
 }
 
-.btn-color:hover {
+.exercise-card-btn {
+    background-color: #f78605;
+    border-color: var(--accent-color-oran);
+    margin-left: 1%;
+}
+
+.exercise-card-btn:hover {
     background-color: #e17c09;
     border-color: var(--accent-color-oran);
 }
-
-.card {
-    /* background-color: #fdb101; */
-    background-color: #ee952fc8;
-    color: white;
-    margin-bottom: 20px;
-    
-}
-
-Card {
-    margin-bottom: 10px;
-}
-/* 
-container {
-    display: flex;
-} */

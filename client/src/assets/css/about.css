@@ -18,13 +18,15 @@
     margin: 2%;
 }
 
-.about-card {
+.card .about-card {
     background-color: var(--light-color);
+    width: 18rem;
 }
 
 .card-body {
     color: var(--dark-color);
     background-color: var(--light-color);
-    border: 1px solid var(--dark-color)
+    border: 1px solid var(--dark-color);
+    border-radius: 2px;
 }
 

@@ -21,7 +21,8 @@
     --dark-color: #49454F;
     --accent-color-yel: #FDB301;
     --accent-color-oran: #F58202;
-    --accent-color-oran-transparent: rgb(251, 138, 9, 0.25)
+    --accent-color-oran-transparent: rgba(251, 138, 9, 0.75)
+    --accent-color-yel-transparent: rgba(253, 179, 1, 0.75)
 }
 
 html,
