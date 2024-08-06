@@ -1,17 +1,42 @@
+.workouts-header {
+    margin-top: 30px;
+    text-align: center;
+}
+
 .exercise-card {
     background-color: var(--accent-color-yel) !important;
     color: white;
-    margin-bottom: 20px;
+    margin: 0 0 20px 30px;
     width: 18rem;
 }
 
-.exercise-card-btn {
-    background-color: #f78605;
-    border-color: var(--accent-color-oran);
+.exercise-card-btn,
+.exercise-card-btn:active {
+    background-color: var(--accent-color-oran) !important;
+    border:none;
     margin-left: 1%;
 }
 
 .exercise-card-btn:hover {
-    background-color: #e17c09;
-    border-color: var(--accent-color-oran);
+    background-color: var(--accent-color-oran-transparent) !important;
+}
+
+.exercise-card-close-btn,
+.exercise-card-close-btn:active {
+    background-color: var(--dark-color) !important;
+    border: none;
+}
+
+.exercise-card-close-btn:hover {
+    background-color: var(--dark-color-transparent) !important;
+}
+
+.modal-dialog {
+    top: 100px;
+}
+
+.modal-btn {
+    font-size: .85rem;
+    padding: 5px;
+    margin: 7px 10px 0 0;
 }

@@ -49,7 +49,9 @@ function ExerciseCard() {
                                             <Card.Text>
                                                 {w.Intensity_Level}
                                             </Card.Text>
+                                            {/* //TODO: onClick to add exercise to a workout */}
                                             <Button  className='btn exercise-card-btn'>+</Button>
+                                            {/* //TODO: onClick to add to that day's workout log */}
                                             <Button  className='btn exercise-card-btn'>Log Exercise</Button>
                                             <Button onClick={handleShow} className='btn exercise-card-btn'>Details</Button>
                                         </Card.Body>
@@ -61,18 +63,45 @@ function ExerciseCard() {
                 </Col >
             ))}
 
-            <Modal show={show} onHide={handleClose}>
-                    console.log(exercises[0].workout)
+            <Modal size="lg" show={show} onHide={handleClose}>
+                    {/* console.log(exercises[0].workout) */}
+
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        {/* <Modal.Title>Workout Title</Modal.Title> */}
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+
+                    <Modal.Body>
+                        <Container>
+                            <Row>
+                                <Col xs={12} md={6}>
+                                    <h2>Workout Title</h2>
+                                    <h4>Muscles</h4>
+                                    <h6>Equipment Needed: </h6>
+                                     {/* //TODO: onClick to add to that day's workout log */}
+                                    <Button className='btn exercise-card-btn modal-btn'>
+                                        Log Exercise
+                                    </Button>
+                                    {/* //TODO: onClick to add exercise to a workout */}
+                                    <Button className='btn exercise-card-btn modal-btn'>
+                                        + Add to Workout
+                                    </Button>
+                                    <h6>Beginner Sets:</h6>
+                                    <h6>Intermediate Sets:</h6>
+                                    <h6>Expert Sets:</h6>
+                                </Col>
+                                <Col xs={12} md={6}>
+                                Tutorial Video
+                                <br />
+                                Basic Explanation:
+                                </Col>
+                            </Row>
+                            Long Explanation: 
+                        </Container>
+                    </Modal.Body>
+
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button className='btn exercise-card-close-btn' onClick={handleClose}>
                             Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Save Changes
                         </Button>
                     </Modal.Footer>
                 </Modal>
