@@ -18,8 +18,10 @@
 @media screen and (max-width: 991px) {
     .sidebar {
         margin-top: 50px;
+        border: none;
     }
     .sidebar-col {
         text-align: center;
+        border: none;
     }
 }

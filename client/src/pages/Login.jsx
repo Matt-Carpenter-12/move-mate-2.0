@@ -53,10 +53,10 @@ function Login() {
 
     return (
         <div>
-        
+          <NavTabs />
             <div className="login-body">
                 <h1 className="login-header"><span className='accent-color'>LOG IN</span> <span className="light-color">TO YOUR MOVE MATE ACCOUNT</span></h1>
-                <Card body className='login-card'>
+                <Card className='login-card'>
                     <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                         {/* show alert if server response is bad */}
                         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
