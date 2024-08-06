@@ -1,0 +1,30 @@
+.about {
+    margin-top: 100px;
+}
+
+.about-header {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.about h5 {
+    margin: 2% 15%;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.about .card-section {
+    margin: 2%;
+}
+
+.about-card {
+    background-color: var(--light-color);
+}
+
+.card-body {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    border: 1px solid var(--dark-color)
+}
+

@@ -1,0 +1,12 @@
+.log {
+    margin-top: 100px;
+}
+
+.log-header {
+    text-align: center;
+    font-weight: 700;
+}
+
+span.accent-color {
+    color: var(--accent-color-oran)
+}
