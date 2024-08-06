@@ -1,6 +1,7 @@
 import NavTabs from '../Components/NavTabs'
 import roger from '../assets/images/aboutimages/Roger.png'
 import AboutCard from '../Components/AboutCard'
+
 import '../assets/css/about.css'
 
 const aboutdata = [
@@ -20,6 +21,7 @@ const aboutdata = [
     img: roger, name: 'Bethany Proctor', github: 'https://github.com/BethanyProctor', description: 'blah blah blah'  
     },
 ]
+
 
 function AboutUs() {
     return (
