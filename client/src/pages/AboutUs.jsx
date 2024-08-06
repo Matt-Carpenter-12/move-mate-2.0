@@ -1,28 +1,42 @@
 import NavTabs from '../Components/NavTabs'
 import roger from '../assets/images/aboutimages/Roger.png'
 import AboutCard from '../Components/AboutCard'
-const aboutdata = [{
-    img: roger, name: 'Saydeez', github: 'https://github.com/saydeezr', description: ''
-}, {
-    img: roger, name: 'Bethany', github: 'https://github.com/bethanyproctor', description: ''
-},{
-    img: roger, name: 'Marly', github: 'https://github.com/marlyV1', description: ''
 
-},{
-    img: roger, name: 'Matt', github: 'https://github.com/matt-carpenter-12', description: ''
+import '../assets/css/about.css'
 
-},{
-    img: roger, name: 'Roger', github: 'https://github.com/rogretheekyogre/React-Portfolio', description: ''
+const aboutdata = [
+    {
+    img: roger, name: 'Roger Aponte', github: 'https://github.com/rogretheekyogre', description: 'blah blah blah'
+    }, 
+    {
+    img: roger, name: 'Marly Valcin', github: 'https://github.com/MarlyV1', description: 'blah blah blah'  
+    },
+    {
+    img: roger, name: 'Saydeez Reyes', github: 'https://github.com/Saydeezr', description: 'blah blah blah'  
+    },
+    {
+    img: roger, name: 'Matt Carpenter', github: 'https://github.com/Matt-Carpenter-12', description: 'blah blah blah'  
+    },
+    {
+    img: roger, name: 'Bethany Proctor', github: 'https://github.com/BethanyProctor', description: 'blah blah blah'  
+    },
+]
 
-}]
 
 function AboutUs() {
     return (
-        <div className='d-flex'>
-{aboutdata.map(data=>(
-    <AboutCard info={data} key={data.name}/>
-))}
-        </div>
+        <>
+            <NavTabs />
+            <div className='about'>
+                <h2 className='about-header'>MEET THE DEVS</h2>
+                <h5 className='about-subheader'>Meet your Move Mates: five MERN stack students who are all on their individual coding journies who came together to make a fitness tracker. Their goal was to use their newfound engineering skills to provide a functioning application to their community as well as show off all they have learned in the recent months. Take a look at their other impressive projects and follow them to see what new projects they dream up next.</h5>
+                <div className="d-flex card-section">
+                    {aboutdata.map(data=>(
+                        <AboutCard info={data} key={data.name}/>
+                    ))}
+                </div>
+            </div>
+        </>
     )
 }
 

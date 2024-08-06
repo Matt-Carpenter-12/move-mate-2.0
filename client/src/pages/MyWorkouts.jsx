@@ -1,13 +1,21 @@
 //page for seeing created workouts for certain days
 import Header from '../Components/Header'
-import GetWorkouts from '../Components/GetWorkouts';
+import { Container, Row, Col } from 'react-bootstrap';
+import '../assets/css/myworkouts.css'
 
 function MyWorkouts() { 
     return (
         <>
             <Header />
-            <GetWorkouts />
-
+            <div className="my-workouts">
+                <h1>MY WORKOUTS</h1>
+                <Container>
+                    <Row>
+                        <Col>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         </>
     )
 }
