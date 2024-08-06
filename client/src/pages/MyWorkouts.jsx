@@ -8,7 +8,7 @@ function MyWorkouts() {
         <>
             <Header />
             <div className="my-workouts">
-                <h1>MY WORKOUTS</h1>
+                <h1 className='my-workouts-header'>MY WORKOUTS</h1>
                 <Container>
                     <Row>
                         <Col>

@@ -19,10 +19,11 @@
 :root {
     --light-color: #F9F9F9;
     --dark-color: #49454F;
+    --dark-color-transparent: rgba(73, 69, 79, .85);
     --accent-color-yel: #FDB301;
     --accent-color-oran: #F58202;
-    --accent-color-oran-transparent: rgba(251, 138, 9, 0.75)
-    --accent-color-yel-transparent: rgba(253, 179, 1, 0.75)
+    --accent-color-oran-transparent: rgba(251, 138, 9, 0.75);
+    --accent-color-yel-transparent: rgba(253, 179, 1, 0.75);
 }
 
 html,
