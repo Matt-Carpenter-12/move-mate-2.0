@@ -36,7 +36,7 @@ function ExerciseCard() {
     }, []);
     return (
         <>
-            <Col xs={12} md={4} className="g-2">
+            {/* <Col xs={12} md={4} className="g-2"> */}
                 {exercises.map((w) => (
                     <Card className="exercise-card" key={w.id}>
                         <Card.Body>
@@ -49,7 +49,7 @@ function ExerciseCard() {
                         </Card.Body>
                     </Card>
                 ))}
-            </Col>
+            {/* </Col> */}
 
             <Modal size="lg" show={show} onHide={handleClose}>
                 {selectedExercise && (
