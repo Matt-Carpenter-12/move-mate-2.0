@@ -1,6 +1,10 @@
 import NavTabs from '../Components/NavTabs'
 import roger from '../assets/images/aboutimages/Roger.png'
 import AboutCard from '../Components/AboutCard'
+import marly from '../assets/images/aboutimages/Marly.png'
+import saydeez from '../assets/images/aboutimages/Saydeez.png'
+import matt from '../assets/images/aboutimages/Matt.png'
+import bethany from '../assets/images/aboutimages/Bethany.png'
 
 import '../assets/css/about.css'
 
@@ -9,16 +13,16 @@ const aboutdata = [
     img: roger, name: 'Roger Aponte', github: 'https://github.com/rogretheekyogre', description: 'blah blah blah'
     }, 
     {
-    img: roger, name: 'Marly Valcin', github: 'https://github.com/MarlyV1', description: 'blah blah blah'  
+    img: marly, name: 'Marly Valcin', github: 'https://github.com/MarlyV1', description: 'blah blah blah'  
     },
     {
-    img: roger, name: 'Saydeez Reyes', github: 'https://github.com/Saydeezr', description: 'blah blah blah'  
+    img: saydeez, name: 'Saydeez Reyes', github: 'https://github.com/Saydeezr', description: 'blah blah blah'  
     },
     {
-    img: roger, name: 'Matt Carpenter', github: 'https://github.com/Matt-Carpenter-12', description: 'blah blah blah'  
+    img: matt, name: 'Matt Carpenter', github: 'https://github.com/Matt-Carpenter-12', description: 'blah blah blah'  
     },
     {
-    img: roger, name: 'Bethany Proctor', github: 'https://github.com/BethanyProctor', description: 'blah blah blah'  
+    img: bethany, name: 'Bethany Proctor', github: 'https://github.com/BethanyProctor', description: 'blah blah blah'  
     },
 ]
 

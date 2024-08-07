@@ -78,6 +78,10 @@ nav.navbar.scrolled {
   background-color: var(--dark-color);
 }
 
+nav.navbar.scrolled .search-btn {
+  background-color: var(--light-color) !important;
+}
+
 nav.navbar a.navbar-brand {
   width: 14%;
   height: auto;
@@ -116,10 +120,6 @@ span.navbar-text {
 	background-color: var(--accent-color-oran);
 	transition: 0.3s ease-in-out;
 }
-
-/* .navbar-text button .logout-btn {
-  padding: 10px !important;
-} */
 
 .navbar-text a {
   text-decoration: none;
@@ -169,12 +169,13 @@ nav.navbar .navbar-toggler-icon:after {
 
 Form .search-input {
   border-radius: 15px;
+  border: none;
 }
 
 Form .search-btn {
   border-radius: 15px;
-  margin-left: -23px;
-  padding: 7px 11px;
+  margin-left: -21px;
+  padding: 6.5px 11px;
 }
 
 Form .search-btn,

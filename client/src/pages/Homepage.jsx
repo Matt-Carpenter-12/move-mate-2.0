@@ -11,10 +11,10 @@ function Homepage() {
         <section className="sidebar">
             <Container>
                 <Row>
-                    <Col xs={12} sm={2}>
+                    <Col xs={12} lg={2} className='sidebar-col'>
                         <Sidebar />
                     </Col>
-                    <Col xs={12} sm={10}>
+                    <Col xs={12} lg={10} className='workouts-col'>
                         <GetWorkouts />
                     </Col>
                 </Row>

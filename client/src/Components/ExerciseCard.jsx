@@ -35,22 +35,23 @@ function ExerciseCard() {
 
     return (
         <>
-            {Array.from({ length: 1 }).map((_, idx) => (
-                <Col xs={12} md={4} className="g-2" key={idx}>
+                <Col xs={12} md={4} className="g-2">
                     {
-                        exercises.map((w, index) => {
+                        exercises.map((w) => {
                             return (
                                 <>
-                                    <Card className="exercise-card" key={index}>
+                                    <Card className="exercise-card" key={w.id}>
                                         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                                        <Card.Body key={index}>
+
+                                        <Card.Body >
                                             <Card.Title>{w.Muscles}</Card.Title>
                                             <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
+
                                             <Card.Text>
                                                 {w.Intensity_Level}
                                             </Card.Text>
                                             {/* //TODO: onClick to add exercise to a workout */}
-                                            <Button  className='btn exercise-card-btn'>+</Button>
+                                            <Button  className='btn exercise-card-btn accent-btn'>+</Button>
                                             {/* //TODO: onClick to add to that day's workout log */}
                                             <Button  className='btn exercise-card-btn'>Log Exercise</Button>
                                             <Button onClick={handleShow} className='btn exercise-card-btn'>Details</Button>
@@ -61,7 +62,6 @@ function ExerciseCard() {
                         })
                     }
                 </Col >
-            ))}
 
             <Modal size="lg" show={show} onHide={handleClose}>
                     console.log(exercises[0].workout)
@@ -78,11 +78,11 @@ function ExerciseCard() {
                                     <h4>Muscles</h4>
                                     <h6>Equipment Needed: </h6>
                                      {/* //TODO: onClick to add to that day's workout log */}
-                                    <Button className='btn exercise-card-btn modal-btn'>
+                                    <Button className='btn accent-btn modal-btn'>
                                         Log Exercise
                                     </Button>
                                     {/* //TODO: onClick to add exercise to a workout */}
-                                    <Button className='btn exercise-card-btn modal-btn'>
+                                    <Button className='btn accent-btn modal-btn'>
                                         + Add to Workout
                                     </Button>
                                     <h6>Beginner Sets:</h6>
@@ -100,7 +100,7 @@ function ExerciseCard() {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button className='btn exercise-card-close-btn' onClick={handleClose}>
+                        <Button className='btn exercise-card-btn' onClick={handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>
