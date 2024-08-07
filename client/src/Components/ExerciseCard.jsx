@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import "../assets/css/getWorkouts.css";
+import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
+// import "../assets/css/getWorkouts.css";
 
 
 function ExerciseCard() {
     const [show, setShow] = useState(false);
+    const [selectedExercise, setSelectedExercise] = useState(null);
+    const [exercises, setExercises] = useState([]);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const [exercises, setExercises] = useState([]);
+    const handleShow = (exercise) => {
+        setSelectedExercise(exercise);
+        setShow(true);
+    };
 
     const url = 'http://localhost:3001/workouts';
     const options = {
@@ -22,91 +20,72 @@ function ExerciseCard() {
     }
 
     useEffect(() => {
-        console.log('workouts page loaded')
         fetch(url, options)
-            .then(response => response.json())
-            .then(data => {
-                setExercises(data);
-                // console.log(data[0]);
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    console.log(error);
+                }
             })
-            .catch(err => console.error(err.message))
-    }, [])
-    console.log(exercises);
-
+            .then(data => {
+                console.log('data:', data)
+                setExercises(data);
+            })
+            .catch(err => console.error('Fetch error:', err.message));
+    }, []);
     return (
         <>
-                <Col xs={12} md={4} className="g-2">
-                    {
-                        exercises.map((w) => {
-                            return (
-                                <>
-                                    <Card className="exercise-card" key={w.id}>
-                                        {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-
-                                        <Card.Body >
-                                            <Card.Title>{w.Muscles}</Card.Title>
-                                            <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
-
-                                            <Card.Text>
-                                                {w.Intensity_Level}
-                                            </Card.Text>
-                                            {/* //TODO: onClick to add exercise to a workout */}
-                                            <Button  className='btn exercise-card-btn accent-btn'>+</Button>
-                                            {/* //TODO: onClick to add to that day's workout log */}
-                                            <Button  className='btn exercise-card-btn'>Log Exercise</Button>
-                                            <Button onClick={handleShow} className='btn exercise-card-btn'>Details</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </>
-                            )
-                        })
-                    }
-                </Col >
+            <Col xs={12} md={4} className="g-2">
+                {exercises.map((w) => (
+                    <Card className="exercise-card" key={w.id}>
+                        <Card.Body>
+                            <Card.Title>{w.Muscles}</Card.Title>
+                            <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
+                            <Card.Text>{w.Intensity_Level}</Card.Text>
+                            <Button className='btn exercise-card-btn accent-btn'>+</Button>
+                            <Button className='btn exercise-card-btn'>Log Exercise</Button>
+                            <Button onClick={() => handleShow(w)} className='btn exercise-card-btn'>Details</Button>
+                        </Card.Body>
+                    </Card>
+                ))}
+            </Col>
 
             <Modal size="lg" show={show} onHide={handleClose}>
-                    console.log(exercises[0].workout)
-
-                    <Modal.Header closeButton>
-                        {/* <Modal.Title>Workout Title</Modal.Title> */}
-                    </Modal.Header>
-
-                    <Modal.Body>
-                        <Container>
-                            <Row>
-                                <Col xs={12} md={6}>
-                                    <h2>Workout Title</h2>
-                                    <h4>Muscles</h4>
-                                    <h6>Equipment Needed: </h6>
-                                     {/* //TODO: onClick to add to that day's workout log */}
-                                    <Button className='btn accent-btn modal-btn'>
-                                        Log Exercise
-                                    </Button>
-                                    {/* //TODO: onClick to add exercise to a workout */}
-                                    <Button className='btn accent-btn modal-btn'>
-                                        + Add to Workout
-                                    </Button>
-                                    <h6>Beginner Sets:</h6>
-                                    <h6>Intermediate Sets:</h6>
-                                    <h6>Expert Sets:</h6>
-                                </Col>
-                                <Col xs={12} md={6}>
-                                Tutorial Video
-                                <br />
-                                Basic Explanation:
-                                </Col>
-                            </Row>
-                            Long Explanation: 
-                        </Container>
-                    </Modal.Body>
-
-                    <Modal.Footer>
-                        <Button className='btn exercise-card-btn' onClick={handleClose}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                {selectedExercise && (
+                    <>
+                        <Modal.Header closeButton>
+                            <Modal.Title>{selectedExercise.WorkOut}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Container>
+                                <Row>
+                                    <Col xs={12} md={6}>
+                                        <h2>{selectedExercise.WorkOut}</h2>
+                                        <h4>{selectedExercise.Muscles}</h4>
+                                        <h6>Equipment Needed: {selectedExercise.Equipment}</h6>
+                                        <Button className='btn accent-btn modal-btn'>Log Exercise</Button>
+                                        <Button className='btn accent-btn modal-btn'>+ Add to Workout</Button>
+                                        <h6>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
+                                        <h6>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>
+                                        <h6>Expert Sets: {selectedExercise.Expert_Sets}</h6>
+                                    </Col>
+                                    <Col xs={12} md={6}>
+                                        <h5>Tutorial Video</h5>
+                                        <p>Basic Explanation: {selectedExercise.Basic_Explanation}</p>
+                                    </Col>
+                                </Row>
+                                <p>Long Explanation: {selectedExercise.Long_Explanation}</p>
+                            </Container>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button className='btn exercise-card-btn' onClick={handleClose}>Close</Button>
+                        </Modal.Footer>
+                    </>
+                )}
+            </Modal>
         </>
-    )
+    );
 }
 
-export default ExerciseCard
+export default ExerciseCard;
