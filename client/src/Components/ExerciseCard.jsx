@@ -35,17 +35,18 @@ function ExerciseCard() {
 
     return (
         <>
-            {Array.from({ length: 1 }).map((_, idx) => (
-                <Col xs={12} md={4} className="g-2" key={idx}>
+                <Col xs={12} md={4} className="g-2">
                     {
-                        exercises.map((w, index) => {
+                        exercises.map((w) => {
                             return (
                                 <>
-                                    <Card className="exercise-card" key={index}>
+                                    <Card className="exercise-card" key={w.id}>
                                         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                                        <Card.Body key={index} className='exercise-body'>
-                                            <Card.Title>{w.WorkOut}</Card.Title>
-                                            <Card.Subtitle className='mb-2'>{w.Muscles}</Card.Subtitle>
+
+                                        <Card.Body >
+                                            <Card.Title>{w.Muscles}</Card.Title>
+                                            <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
+
                                             <Card.Text>
                                                 {w.Intensity_Level}
                                             </Card.Text>
@@ -61,7 +62,6 @@ function ExerciseCard() {
                         })
                     }
                 </Col >
-            ))}
 
             <Modal size="lg" show={show} onHide={handleClose}>
                     console.log(exercises[0].workout)
