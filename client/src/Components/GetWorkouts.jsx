@@ -6,7 +6,7 @@ function GetWorkouts() {
 
     return (
         <>
-            <h1 className='workouts-header'>SELECT A WORKOUT TO GET STARTED</h1>
+            <h1 className='workouts-header'><span className="accent-color">SELECT A WORKOUT </span>TO GET STARTED</h1>
             <Container>
                 <Row >
                     <ExerciseCard />
