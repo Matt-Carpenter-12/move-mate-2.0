@@ -3,6 +3,7 @@ const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -26,8 +27,13 @@ app.get('/workouts', (req, res) => {
     fetch(url, options)
     .then(response => response.json())
     .then(data => {
-      res.json(data)
-        console.log(data[0]);
+      const uuid =  uuidv4( );
+      const updatedData = data.map(exercise => ({
+        ...exercise,
+        id: uuidv4()
+      }));
+      res.json(updatedData)
+        // console.log(updatedData);
     })
     .catch(err => console.error(err.message))
 });
