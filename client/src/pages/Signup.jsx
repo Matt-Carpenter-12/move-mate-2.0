@@ -39,6 +39,8 @@ const SignupForm = () => {
 
       const { token, user } = await response.json();
       console.log(user);
+      // grab user id from user and save to session storage 
+      sessionStorage.setItem('userId', user.id);
       Auth.login(token);
     } catch (err) {
       console.error(err);

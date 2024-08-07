@@ -48,6 +48,9 @@ const Questionnaire = () => {
       workoutDays,
     };
     console.log('Form Data:', formData);
+    //need to send form data as a post request to endpoint (/api/users/:id/form)
+    //part of request will need to ref id (using params?)
+    //TODO: add user ID from Login.jsx to request 
     localStorage.setItem('formData', JSON.stringify(formData));
   };
 

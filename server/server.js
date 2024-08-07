@@ -16,24 +16,28 @@ app.use(cors());
 
 //Fetchs the workout options from the third party api
 app.get('/workouts', (req, res) => {
-  const url = 'https://work-out-api1.p.rapidapi.com/search?Muscles=chest&Intensity_Level=Beginner';
+  //what was here before with original API / TODO: need to change hardcoded at the end
+  //ORIGINAL: const url = 'https://work-out-api1.p.rapidapi.com/search?Muscles=chest&Intensity_Level=Beginner';
+  const url = 'https://api.api-ninjas.com/v1/exercises';
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': process.env.API_KEY,
-            'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
+            'X-Api-Key': process.env.API_KEY,
+            //what was here before with original API
+            // ORIGINAL:'x-rapidapi-key': process.env.API_KEY,
+            // ORIGINAL:'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
         }
     }
     fetch(url, options)
     .then(response => response.json())
     .then(data => {
-      const uuid =  uuidv4( );
+      const uuid =  uuidv4();
       const updatedData = data.map(exercise => ({
         ...exercise,
-        id: uuidv4()
+        id: uuid
       }));
       res.json(updatedData)
-        // console.log(updatedData);
+      console.log(updatedData);
     })
     .catch(err => console.error(err.message))
 });
@@ -45,8 +49,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
 }
-
-
 
 
 db.once('open', () => {
