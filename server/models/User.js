@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const formSchema  = require('./Form');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
@@ -13,7 +14,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-
+        form: [formSchema],
     },
 
     {

@@ -15,36 +15,42 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+
+  //handles changes in form input fields
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+
+  // work being done once form is submitted
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
     try {
       const response = await createUser(userFormData);
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
 
       const { token, user } = await response.json();
       console.log(user);
       Auth.login(token);
+
+      // grab user id from user and save to session storage 
+      sessionStorage.setItem('userId', user.id);
+      
     } catch (err) {
       console.error(err);
       setShowAlert(true);
     }
-
+    
+    //after: set it to empty
     setUserFormData({
       email: '',
       password: '',
@@ -57,49 +63,52 @@ const SignupForm = () => {
       <div className="signup-body">
         <h1 className="signup-header"><span className='accent-color'>SIGN UP TODAY</span> <span className="light-color">FOR YOUR MOVE MATE ACCOUNT</span></h1>
         <Card className='signup-card'>
-          {/* This is needed for the validation functionality above */}
           <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            {/* show alert if server response is bad */}
             <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
               Something went wrong with your signup!
             </Alert>
+
             <Form.Group className='mb-3'>
               <Form.Label htmlFor='email'>Email</Form.Label>
-              <Form.Control
-                type='email'
-                placeholder='Enter Email Address'
-                name='email'
-                onChange={handleInputChange}
-                value={userFormData.email}
-                required
-              />
-              <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+                <Form.Control
+                  type='email'
+                  placeholder='Enter Email Address'
+                  name='email'
+                  onChange={handleInputChange}
+                  value={userFormData.email}
+                  required
+                />
+              <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
               <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
             </Form.Group>
+
             <Form.Group className='mb-3'>
               <Form.Label htmlFor='password'>Password</Form.Label>
-              <Form.Control
-                type='password'
-                placeholder='Enter Password'
-                name='password'
-                onChange={handleInputChange}
-                value={userFormData.password}
-                required
-              />
+                <Form.Control
+                  type='password'
+                  placeholder='Enter Password'
+                  name='password'
+                  onChange={handleInputChange}
+                  value={userFormData.password}
+                  required
+                />
               <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
             </Form.Group>
+
             <Form.Check
                 type="switch"
                 id="custom-switch"
                 label="Send me reminders to workout"
             />
-            <Link to='/Questionnaire'>
+            
+            <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
+                SIGN UP
+              </Button>
+            {/* <Link to='/Questionnaire'>
               <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
                 SIGN UP
               </Button>
-            </Link>
+            </Link> */}
             
           </Form>
         </Card>

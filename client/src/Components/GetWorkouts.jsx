@@ -10,8 +10,8 @@ function GetWorkouts() {
             <Container>
                 <Row >
                     <ExerciseCard />
-                    <ExerciseCard />
-                    <ExerciseCard />
+                    {/* <ExerciseCard />
+                    <ExerciseCard /> */}
                 </Row>
             </Container >
         </>
