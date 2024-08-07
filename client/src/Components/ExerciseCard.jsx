@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
-// import "../assets/css/getWorkouts.css";
+import "../assets/css/getWorkouts.css";
 
 
 function ExerciseCard() {
@@ -64,8 +64,11 @@ function ExerciseCard() {
                                         <h2>{selectedExercise.WorkOut}</h2>
                                         <h4>{selectedExercise.Muscles}</h4>
                                         <h6>Equipment Needed: {selectedExercise.Equipment}</h6>
+                                        {/* //TODO: onClick to add to that day's workout log */}
                                         <Button className='btn accent-btn modal-btn'>Log Exercise</Button>
+                                         {/* //TODO: onClick to add exercise to a workout */}
                                         <Button className='btn accent-btn modal-btn'>+ Add to Workout</Button>
+                                         {/*TODO: Make it show only the intensity level chosen */}
                                         <h6>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
                                         <h6>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>
                                         <h6>Expert Sets: {selectedExercise.Expert_Sets}</h6>
@@ -78,6 +81,7 @@ function ExerciseCard() {
                                 <p>Long Explanation: {selectedExercise.Long_Explanation}</p>
                             </Container>
                         </Modal.Body>
+                        
                         <Modal.Footer>
                             <Button className='btn exercise-card-btn' onClick={handleClose}>Close</Button>
                         </Modal.Footer>
