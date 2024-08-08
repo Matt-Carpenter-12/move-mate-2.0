@@ -65,7 +65,7 @@ const Header = () => {
                 {/* <span className="navbar-text">
                   <button className="vvd logout-btn" onClick={()=>console.log('Ready to log out')}><a href='/'><span>LOG OUT</span></a></button>
                 </span> */}
-                <Form inline>
+                <Form inline='true'>
                   <Row>
                     <Col xs="auto">
                       <Form.Control

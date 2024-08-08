@@ -53,7 +53,6 @@ const Questionnaire = () => {
     const userId = sessionStorage.getItem('userId');
 
     //need to send form data as a post request to endpoint (/api/users/:id/form)
-    //TODO: add user ID from Login.jsx to request 
     const formRequest = () => {
         return fetch(`/api/users/${userId}/form`, {
             method: 'POST',

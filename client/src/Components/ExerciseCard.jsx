@@ -99,6 +99,7 @@ function ExerciseCard() {
                                         <h6>Expert Sets: {selectedExercise.Expert_Sets}</h6>
                                     </Col>
                                     <Col xs={12} md={6}>
+                                        <video>{selectedExercise.Video}</video>
                                         <h5>Tutorial Video</h5>
                                         <p>Basic Explanation: {selectedExercise.Basic_Explanation}</p>
                                     </Col>

@@ -1,6 +1,6 @@
 import NavTabs from '../Components/NavTabs'
 import { Col, Container, Row } from "react-bootstrap"
-import { ArrowRightCircle } from "react-bootstrap-icons"
+import { FaArrowCircleRight } from "react-icons/fa";
 import '../assets/css/landingpage.css'
 
 function LandingPage() {
@@ -24,7 +24,7 @@ function LandingPage() {
                         <h1 className='header3'>FOR THE BETTER.</h1>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
-                        <button><a href='/Sign-Up'>Sign Up<ArrowRightCircle /></a></button>
+                        <button><a href='/Sign-Up'>Sign Up <FaArrowCircleRight /></a></button>
                     </Col>
                 </Row>
             </Container>
