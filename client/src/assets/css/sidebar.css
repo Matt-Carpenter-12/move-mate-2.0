@@ -2,9 +2,10 @@
     margin-top: 70px;
 }
 
-/* .sidebar-col {
-    border-right: 1px solid black;
-} */
+.sidebar-col {
+    /* border-right: 1px solid black; */
+    margin-left: -40px;
+}
 
 .sidebar h5 svg {
     font-size: 25px;
@@ -15,6 +16,14 @@
   
 .sidebar h5:hover svg {
     margin-left: 15px;
+}
+
+.sidebar .sidebar-title {
+    margin: 10px 0;
+}
+
+.sidebar .hide Input {
+    margin: 1px 0 10px 10px;
 }
 
 .offcanvas {
@@ -45,16 +54,6 @@
         display: none;
     }
 }
-
-/* 
-.sidebar input[type="radio"] {
-    background: url('../images/open-radio.svg')
-}
-
-.sidebar input[type="radio"]:checked {
-    background: url('../images/selected-radio.svg')
-
-} */
 
 /* 
 .sidebar .dropdown-title {
