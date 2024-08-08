@@ -6,7 +6,7 @@ const { signToken } = require('../utils/auth');
 module.exports = {
 
   // get a single user by either their id or their email
-  async getSingleUser({ user = null, params }, res) {
+  async getSingleUser({ user, params }, res) {
     const foundUser = await User.findOne({
       $or: [{ _id: user ? user._id : params.id }, { email: params.email }],
     });
