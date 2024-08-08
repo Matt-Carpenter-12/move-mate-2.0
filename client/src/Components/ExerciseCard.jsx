@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
-import Axios from 'axios';
 import "../assets/css/getWorkouts.css";
 
 
@@ -38,14 +37,26 @@ function ExerciseCard() {
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
 
-    const handleAddedExercise = () => {
-        Axios.post('http://localhost:3001/workouts', {
-            name: selectedExercise.Workout,
-            muscles: selectedExercise.Muscles,
-            equipment: selectedExercise.Equipment,
-            intensity_level: selectedExercise.Intensity_Level,
-            explanation: selectedExercise.Basic_Explanation
-        })
+    const handleAddedExercise = async() => {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: selectedExercise.Workout,
+                    muscles: selectedExercise.Muscles,
+                    equipment: selectedExercise.Equipment,
+                    intensity_level: selectedExercise.Intensity_Level,
+                    explanation: selectedExercise.Basic_Explanation
+                })
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error.message)
+        }
     }
 
     return (
