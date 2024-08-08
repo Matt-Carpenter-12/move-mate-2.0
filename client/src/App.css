@@ -96,7 +96,7 @@ nav.navbar .navbar-nav .nav-link {
 }
 
 nav.navbar.scrolled .navbar-nav .nav-link {
-  color: var(--accent-color-oran);
+  color: var(--light-color);
 }
 
 nav.navbar .navbar-nav .nav-link:hover,
@@ -113,7 +113,7 @@ span.navbar-text {
   font-weight: 700;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 34px;
+  padding: 8px 30px;
   font-size: 18px;
   margin-left: 18px;
 	position: relative;
@@ -169,6 +169,7 @@ nav.navbar .navbar-toggler-icon:after {
 
 Form .search-input {
   border-radius: 15px;
+  box-shadow: 1px 1px 1px -1px var(--dark-color-transparent);
   border: none;
 }
 
