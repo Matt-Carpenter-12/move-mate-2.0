@@ -1,32 +1,93 @@
+.about-banner {
+    background-image: url('../images/magicpattern-iAR6yhCkrxc-unsplash.jpg');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top:100px;
+    padding: 200px 100px;
+    color: var(--light-color)
+}
+
+.about-banner h4 {
+    padding-left: 20%;
+}
+.about-banner h2{
+    font-size: 3rem;
+}
+.about-banner h2.subheader1 {
+    padding-left: 30%;
+}
+
+.about-banner h2.subheader2 {
+    padding-left: 37%;
+}
+.about-banner h2.subheader3 {
+    padding-left: 50%;
+    font-size: 4rem;
+}
+
+@media screen and (max-width: 741px) {
+    .about-banner {
+        padding: 200px 0px;
+    }
+
+    .about-banner h2.subheader1, 
+    .about-banner h2.subheader2, 
+    .about-banner h2.subheader3 {
+        padding-left: 20%;
+    }
+}
+
 .about {
     margin-top: 100px;
 }
 
 .about-header {
     text-align: center;
-    font-weight: 700;
     margin-bottom: 50px;
 }
 
 .about h5 {
-    margin: 2% 15%;
+    margin: 2% 5% 4% 5%;
     line-height: 2rem;
     text-align: justify;
 }
 
 .about .card-section {
-    margin: 2%;
+   margin: 2% 5% 5% 5%;
 }
 
-.card .about-card {
+.about-card img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 64.5px;
+}
+
+.about-card.card{
+    margin: 5px;
+    border-radius: 6px;
     background-color: var(--light-color);
     width: 18rem;
+    border: 1px solid var(--dark-color);
+    border-radius: 6px;
 }
 
 .card-body {
     color: var(--dark-color);
     background-color: var(--light-color);
-    border: 1px solid var(--dark-color);
-    border-radius: 2px;
+    border:none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    text-align: center;
 }
 
+.about-card .card-btn {
+    background-color: var(--dark-color);
+    border:none;
+    color: var(--light-color);
+    font-size: 14px;
+    letter-spacing: 0.6px;
+}
+.about-card .card-btn:hover {
+    background-color: var(--dark-color-transparent);
+}

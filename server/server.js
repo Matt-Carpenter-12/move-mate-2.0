@@ -32,10 +32,9 @@ app.get('/workouts', (req, res) => {
     fetch(url, options)
     .then(response => response.json())
     .then(data => {
-      const uuid =  uuidv4();
       const updatedData = data.map(exercise => ({
         ...exercise,
-        id: uuid
+        id: uuidv4()
       }));
       res.json(updatedData)
       console.log(updatedData);
@@ -53,6 +52,25 @@ app.post('/workouts', async (req, res) => {
   }
 })
 
+//FOR EMAIL REMINDERS !!!
+// const transporter = nodemailer.createTransport({
+//    service: 'gmail',
+//    auth: {
+//      user:'mail@gmail.com',
+//   },
+// });
+//
+// [in the POST request]
+// TODO: make the data come in as req.body (boolean to use if wants reminder?)
+// TODO: attach mail messages as options to send
+//  let mailOptions = {
+//    from: 'YOUR_MAIL_ADDRESS',
+//    to: user.email,
+//    subject: 'MoveMate Reminder',
+//    html: mailTemplate, ![need to create mail template]!
+//  };
+// 
+// TODO: transporter.sendMail(message) => {function for scheduling?}
 
 
 // if we're in production, serve client/build as static assets

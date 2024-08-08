@@ -2,7 +2,7 @@
 .login-body,
 .signup-body,
 .survey-body {
-    margin:99px 0 70px 0;
+    margin:99px 0 10px 0;
     background-image: url("../images/landingpagebg2.jpg");
     position: relative;
     background-position: center;

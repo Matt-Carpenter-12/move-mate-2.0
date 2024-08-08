@@ -1,6 +1,6 @@
 /* Landing Page CSS */
 .landing-page-body {
-  margin: 99px 0 70px 0;
+  margin: 99px 0 10px 0;
   background-image: url("../images/landingpagebg2.jpg");
   background-position: center;
   background-size: cover;
@@ -42,6 +42,7 @@
 .landing-page-body  button svg {
   font-size: 25px;
   margin-left: 10px;
+  color: var(--accent-color-oran);
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
