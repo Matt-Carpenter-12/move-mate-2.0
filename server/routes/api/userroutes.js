@@ -25,14 +25,34 @@ router.post('/:id/form', async (req,res) => {
       return res.status(404).json({ message: 'User not found.'});
     }
     user.form.push(form);
-    await user.save;
+    await user.save();
     res.status(200).json({ message: 'Form data added successfully', user });
 
   } catch (error) {
     res.status(500).json({ message: 'server error'});
     console.error(error)
   }
-  
-}) 
+});
+
+router.put('/:id/form', async (req,res) => {
+  try{
+    const userId = req.params.id;
+    const form = req.body
+
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $set: { form: form } },
+      { new: true }
+    );
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+  }
+    res.status(200).json({ message: 'Form data updated successfully', user });
+
+  } catch (error) {
+    res.status(500).json({ message: 'server error'});
+    console.error(error)
+  }
+});
 
 module.exports = router;
