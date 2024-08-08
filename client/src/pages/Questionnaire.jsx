@@ -62,7 +62,7 @@ const Questionnaire = () => {
               },
               body: JSON.stringify(formData),
         })
-        .then(response = response.json())
+        .then(response => response.json())
         .then(data => {
             console.log('DATA RETRIEVED: ', data);
         })
