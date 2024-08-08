@@ -32,10 +32,9 @@ app.get('/workouts', (req, res) => {
     fetch(url, options)
     .then(response => response.json())
     .then(data => {
-      const uuid =  uuidv4();
       const updatedData = data.map(exercise => ({
         ...exercise,
-        id: uuid
+        id: uuidv4()
       }));
       res.json(updatedData)
       console.log(updatedData);
