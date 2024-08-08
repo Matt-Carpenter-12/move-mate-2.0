@@ -34,6 +34,8 @@ router.post('/:id/form', async (req,res) => {
   }
 });
 
+
+//Route to update form inputs
 router.put('/:id/form', async (req,res) => {
   try{
     const userId = req.params.id;
