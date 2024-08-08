@@ -48,10 +48,29 @@ const Questionnaire = () => {
       workoutDays,
     };
     console.log('Form Data:', formData);
+
+    // Retrieve the user ID from session storage
+    const userId = sessionStorage.getItem('userId');
+
     //need to send form data as a post request to endpoint (/api/users/:id/form)
-    //part of request will need to ref id (using params?)
     //TODO: add user ID from Login.jsx to request 
-    localStorage.setItem('formData', JSON.stringify(formData));
+    const formRequest = () => {
+        return fetch(`/api/users/${userId}/form`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+        })
+        .then(response = response.json())
+        .then(data => {
+            console.log('DATA RETRIEVED: ', data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+    formRequest();
   };
 
   return (
@@ -106,10 +125,10 @@ const Questionnaire = () => {
                         </Form.Select>
                     </Form.Group>
                 )}
-
-                <Link to='/Homepage'>
                 <Button type="submit" className='survey-btn'>Submit</Button>
-                </Link>
+                {/* <Link to='/Homepage'>
+                <Button type="submit" className='survey-btn'>Submit</Button>
+                </Link> */}
             </fieldset>
             </Form>
         </Card>
