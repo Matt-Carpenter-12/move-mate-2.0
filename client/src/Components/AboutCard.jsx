@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import '../assets/css/about.css'
 
 function AboutCard({info}) {
-    const {img,name,github,description}= info
+  const {img,name,github,description}= info
   return (
     <Card className='about-card'>
       <Card.Img variant="top" src={img} className='card-img'/>
