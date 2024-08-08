@@ -4,6 +4,7 @@ const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
+const { Exercise } = require('./models/Workout');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -41,6 +42,18 @@ app.get('/workouts', (req, res) => {
     })
     .catch(err => console.error(err.message))
 });
+
+//Adds an exercise to the database
+app.post('/workouts', async (req, res) => {
+  try {
+    const newExercise = await Exercise.create(req.body);
+    console.log('New exercise added to the database');
+  } catch (error) {
+    console.error(error.message)
+  }
+})
+
+
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {

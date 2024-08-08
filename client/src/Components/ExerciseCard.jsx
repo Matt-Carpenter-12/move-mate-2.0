@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
+import Axios from 'axios';
 import "../assets/css/getWorkouts.css";
 
 
@@ -36,6 +37,17 @@ function ExerciseCard() {
             })
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
+
+    const handleAddedExercise = () => {
+        Axios.post('http://localhost:3001/workouts', {
+            name: selectedExercise.Workout,
+            muscles: selectedExercise.Muscles,
+            equipment: selectedExercise.Equipment,
+            intensity_level: selectedExercise.Intensity_Level,
+            explanation: selectedExercise.Basic_Explanation
+        })
+    }
+
     return (
         <>
             <Col xs={12} md={4} className="g-2">
@@ -69,7 +81,7 @@ function ExerciseCard() {
                                         {/* //TODO: onClick to add to that day's workout log */}
                                         <Button className='btn accent-btn modal-btn'>Log Exercise</Button>
                                          {/* //TODO: onClick to add exercise to a workout */}
-                                        <Button className='btn accent-btn modal-btn'>+ Add to Workout</Button>
+                                        <Button onClick={handleAddedExercise} className='btn accent-btn modal-btn'>+ Add to Workout</Button>
                                          {/*TODO: Make it show only the intensity level chosen */}
                                         <h6>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
                                         <h6>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>

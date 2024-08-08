@@ -8,18 +8,18 @@ const exerciseSchema = new Schema(
             required: true,
         },
         muscles: {
-            type: Number,
+            type: String,
             required: true,
         },
         equipment: {
-            type: Number,
+            type: String,
         },
         intensity_level: {
-            type: Number,
+            type: String,
             required: true,
         },
         explanation: {
-            type: Number,
+            type: String,
             required: true,
         },
     }
