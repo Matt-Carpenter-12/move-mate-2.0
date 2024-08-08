@@ -2,6 +2,8 @@
 import Header from '../Components/Header'
 import { Container, Row, Col } from 'react-bootstrap';
 import "../assets/css/log.css"
+import History from "../Components/History";
+import workoutHistory from "../data/workoutHistory";
 
 function Log() {
     return (
@@ -15,7 +17,10 @@ function Log() {
                             <p>the calendar will go here!</p>
                         </Col>
                         <Col lg={9}>
-                            <p>the workout cards will go here!</p>
+                             <div className="workout-history-page">
+                            <h1>Workout History</h1>
+                            <History workoutHistory={workoutHistory} />
+                            </div>
                         </Col>
                     </Row>
                 </Container>

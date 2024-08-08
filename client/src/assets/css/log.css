@@ -1,11 +1,26 @@
 .log {
-    margin-top: 120px;
+  margin-top: 120px;
 }
 
 .log-header {
-    text-align: center;
+  text-align: center;
 }
 
 span.accent-color {
-    color: var(--accent-color-oran);
+  color: var(--accent-color-oran);
+}
+
+.history-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.workout-checkmark {
+  display: inline-block;
+  color: green;
+  font-size: 1.5em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
