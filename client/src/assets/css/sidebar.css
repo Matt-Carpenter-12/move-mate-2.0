@@ -6,6 +6,20 @@
     border-right: 1px solid black;
 }
 
+.sidebar h5 svg {
+    font-size: 25px;
+    margin-left: 5px;
+    transition: 0.3s ease-in-out;
+    line-height: 1;
+  }
+  
+  .sidebar h5:hover svg {
+    margin-left: 15px;
+  }
+
+
+
+/* 
 .sidebar .dropdown-title {
     color: var(--dark-color);
     margin: 15px 0 0 -10px;
@@ -24,4 +38,4 @@
         text-align: center;
         border: none;
     }
-}
+} */

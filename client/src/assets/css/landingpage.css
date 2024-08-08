@@ -42,6 +42,7 @@
 .landing-page-body  button svg {
   font-size: 25px;
   margin-left: 10px;
+  color: var(--accent-color-oran);
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
