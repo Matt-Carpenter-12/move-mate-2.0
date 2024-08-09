@@ -3,6 +3,7 @@ import search from '../assets/images/searchicon.svg';
 import { useState, useEffect } from "react";
 import { Container, Nav, Form, Row, Col, Button } from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
+import Auth from '../utils/auth'
 
 const Header = () => {
     const [currentLink, setCurrentLink] = useState('home');
@@ -58,7 +59,7 @@ const Header = () => {
                 <Nav.Link
                   href="/"
                   className={currentLink === '/' ? 'nav-link active' : 'nav-link'}
-                  onClick={() => onUpdateCurrentLink('')}>
+                  onClick={Auth.logout}>
                   LOG OUT
                 </Nav.Link>
                 </Nav>
