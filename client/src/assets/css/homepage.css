@@ -1,0 +1,97 @@
+.homepage {
+    margin-top: 100px;
+}
+
+.workouts-header {
+    margin: 10px 0 30px 0;
+    text-align: center;
+}
+
+.workouts-col .day-card {
+    margin: 10px;
+    border: 1px solid var(--dark-color);
+    border-radius: 6px;
+}
+
+.workouts-col .day-card:hover {
+    border: 4px solid var(--dark-color);
+}
+
+.workouts-col .day-card:active {
+    border: 4px solid var(--accent-color-oran);
+}
+ 
+.workouts-col .day-card .day-card-body {
+    border-radius: 6px;
+}
+.exercise-card {
+    background-color: var(--ligh-color) !important;
+    margin: 0 0 20px 30px;
+    width: 18rem;
+    border: 1px solid var(--dark-color-transparent);
+    border-radius: 10px;
+}
+
+.exercise-card-body {
+    background-color: transparent;
+    border:none;
+}
+
+.exercise-card-btn,
+.exercise-card-btn:active {
+    background-color: var(--dark-color) !important;
+    border:none;
+    margin: 0 5%;
+}
+
+.exercise-card-btn:hover {
+    background-color: var(--dark-color-transparent) !important;
+}
+
+.details-btn svg {
+    font-size: 25px;
+    margin-left: 10px;
+    color: var(--light-color);
+    transition: 0.3s ease-in-out;
+    line-height: 1;
+}
+
+.details-btn:hover svg {
+margin-left: 25px;
+}
+
+.accent-btn,
+.accent-btn:active {
+    background-color: var(--accent-color-oran) !important;
+    border: none;
+}
+
+.accent-btn:hover {
+    background-color: var(--accent-color-oran-transparent) !important;
+}
+
+.accent-btn svg {
+    color: var(--light-color);
+}
+
+/* modal styling */
+.modal-dialog {
+    top: 100px;
+}
+.modal h4 {
+    margin-bottom: 20px;
+}
+
+.modal-subtitle {
+    margin-top: 5px;
+}
+
+.equipment-subtitle {
+    margin-bottom: 20px;
+}
+.modal video {
+    margin: 20px 0;
+}
+.modal p {
+    margin-top: 10px;
+}

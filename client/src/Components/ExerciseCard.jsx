@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
-import Axios from 'axios';
-import "../assets/css/getWorkouts.css";
+import "../assets/css/homepage.css";
+import video from '../assets/images/example1.mp4'
+import { CiCirclePlus } from "react-icons/ci";
+import { FiArrowRightCircle} from 'react-icons/fi'
 
 
 function ExerciseCard() {
@@ -38,34 +40,46 @@ function ExerciseCard() {
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
 
-    const handleAddedExercise = () => {
-        Axios.post('/workoutId/exercises', {
-            name: selectedExercise.Workout,
-            muscles: selectedExercise.Muscles,
-            equipment: selectedExercise.Equipment,
-            intensity_level: selectedExercise.Intensity_Level,
-            explanation: selectedExercise.Basic_Explanation
-        })
+
+    const handleAddedExercise = async() => {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: selectedExercise.Workout,
+                    muscles: selectedExercise.Muscles,
+                    equipment: selectedExercise.Equipment,
+                    intensity_level: selectedExercise.Intensity_Level,
+                    explanation: selectedExercise.Basic_Explanation
+                })
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error.message)
+        }
     }
 
     return (
         <>
-            <Col xs={12} md={4} className="g-2">
+            <Col xs={12} md={3} className="g-2">
                 {exercises.map((w) => (
                     <Card className="exercise-card" key={w.id}>
-                        <Card.Body>
-                            <Card.Title>{w.Muscles}</Card.Title>
-                            <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
-                            <Card.Text>{w.Intensity_Level}</Card.Text>
-                            <Button className='btn exercise-card-btn accent-btn'>+</Button>
-                            <Button className='btn exercise-card-btn'>Log Exercise</Button>
-                            <Button onClick={() => handleShow(w)} className='btn exercise-card-btn'>Details</Button>
+                        <Card.Body className='exercise-card-body'>
+                            <Card.Title>Bicep Curl{w.WorkOut}</Card.Title>
+                            <Card.Subtitle className='mb-2'>Targets Biceps{w.Muscles}</Card.Subtitle>
+                            <Card.Text>Beginner{w.Intensity_Level}</Card.Text>
+                            <Button className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
+                            <Button onClick={() => handleShow(w)} className='btn exercise-card-btn details-btn'>Details <FiArrowRightCircle /></Button>
                         </Card.Body>
                     </Card>
                 ))}
             </Col>
 
-            <Modal size="lg" show={show} onHide={handleClose}>
+            <Modal size="lg" show={show} onHide={handleClose} className='modal'>
                 {selectedExercise && (
                     <>
                         <Modal.Header closeButton>
@@ -74,26 +88,23 @@ function ExerciseCard() {
                         <Modal.Body>
                             <Container>
                                 <Row>
-                                    <Col xs={12} md={6}>
+                                    <Col>
                                         <h2>{selectedExercise.WorkOut}</h2>
-                                        <h4>{selectedExercise.Muscles}</h4>
-                                        <h6>Equipment Needed: {selectedExercise.Equipment}</h6>
-                                        {/* //TODO: onClick to add to that day's workout log */}
-                                        <Button className='btn accent-btn modal-btn'>Log Exercise</Button>
-                                         {/* //TODO: onClick to add exercise to a workout */}
-                                        <Button onClick={handleAddedExercise} className='btn accent-btn modal-btn'>+ Add to Workout</Button>
-                                         {/*TODO: Make it show only the intensity level chosen */}
-                                        <h6>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
-                                        <h6>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>
-                                        <h6>Expert Sets: {selectedExercise.Expert_Sets}</h6>
+                                        <h4>Targets <span className="accent-color">{selectedExercise.Muscles}</span></h4>
+                                        <h6 className='equipment-subtitle'>Equipment Needed: {selectedExercise.Equipment}</h6>
+                                        <h6 className='modal-subtitle'>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
+                                        <h6 className='modal-subtitle'>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>
+                                        <h6 className='modal-subtitle'>Expert Sets: {selectedExercise.Expert_Sets}</h6>
                                     </Col>
-                                    <Col xs={12} md={6}>
-                                        <video>{selectedExercise.Video}</video>
-                                        <h5>Tutorial Video</h5>
-                                        <p>Basic Explanation: {selectedExercise.Basic_Explanation}</p>
-                                    </Col>
+                                    {/* <Col xs={12} md={6}>
+                                        <video controls width='448' height='250'>
+                                            <source src={selectedExercise.Video} type='video/mp4' />
+                                            <source src={video} type='video/mp4'/>
+                                        </video>
+                                    </Col> */}
                                 </Row>
-                                <p>Long Explanation: {selectedExercise.Long_Explanation}</p>
+                                <p>Instructions: {selectedExercise.Basic_Explanation}</p>
+                                {/* <p>Long Explanation: {selectedExercise.Long_Explanation}</p> */}
                             </Container>
                         </Modal.Body>
                         
