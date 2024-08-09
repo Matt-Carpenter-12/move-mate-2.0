@@ -30,7 +30,7 @@
 
 .landing-page-body  button a {
     text-decoration: none;
-    color: var(--accent-color-oran);
+    color: var(--light-color);
     font-weight: 700;
     font-size: 20px;
     /* margin-top: 400px; */
@@ -42,7 +42,7 @@
 .landing-page-body  button svg {
   font-size: 25px;
   margin-left: 10px;
-  color: var(--accent-color-oran);
+  color: var(--light-color);
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
