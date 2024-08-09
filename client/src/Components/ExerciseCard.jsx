@@ -40,6 +40,7 @@ function ExerciseCard() {
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
 
+
     const handleAddedExercise = async() => {
         try {
             const response = await fetch(url, {
