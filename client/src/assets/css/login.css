@@ -1,4 +1,4 @@
-/* Login page CSS */
+/* Login, sign up page CSS */
 .login-body,
 .signup-body,
 .survey-body {
@@ -60,6 +60,10 @@ button.survey-btn {
     margin: 10px 10px;
 }
 
-
-  
- 
+@media (max-width: 991px) {
+    .login-body,
+    .signup-body,
+    .survey-body {
+      margin: 70px 0 10px 0;
+    }
+  }

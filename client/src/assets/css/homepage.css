@@ -32,7 +32,7 @@
     border-radius: 10px;
 }
 
-.exercise-body {
+.exercise-card-body {
     background-color: transparent;
     border:none;
 }
@@ -41,11 +41,23 @@
 .exercise-card-btn:active {
     background-color: var(--dark-color) !important;
     border:none;
-    margin-left: 1%;
+    margin: 0 5%;
 }
 
 .exercise-card-btn:hover {
     background-color: var(--dark-color-transparent) !important;
+}
+
+.details-btn svg {
+    font-size: 25px;
+    margin-left: 10px;
+    color: var(--light-color);
+    transition: 0.3s ease-in-out;
+    line-height: 1;
+}
+
+.details-btn:hover svg {
+margin-left: 25px;
 }
 
 .accent-btn,
@@ -58,12 +70,28 @@
     background-color: var(--accent-color-oran-transparent) !important;
 }
 
+.accent-btn svg {
+    color: var(--light-color);
+}
+
+/* modal styling */
 .modal-dialog {
     top: 100px;
 }
+.modal h4 {
+    margin-bottom: 20px;
+}
 
-.modal-btn {
-    font-size: .85rem;
-    padding: 5px;
-    margin: 7px 10px 0 0;
+.modal-subtitle {
+    margin-top: 5px;
+}
+
+.equipment-subtitle {
+    margin-bottom: 20px;
+}
+.modal video {
+    margin: 20px 0;
+}
+.modal p {
+    margin-top: 10px;
 }
