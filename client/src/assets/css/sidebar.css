@@ -27,7 +27,7 @@
 }
 
 .sidebar button.offcanvas-btn {
-    margin-left: 40%;
+    margin-left: 50%;
 }
 
 .sidebar button.offcanvas-btn svg {
@@ -39,15 +39,21 @@
     margin-left: 15px;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
     .sidebar button.offcanvas-btn {
         display: none;
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 992px) {
     .sidebar .hide {
         display: none;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1040px) {
+    .sidebar-col {
+        margin-left: -20px;
     }
 }
 

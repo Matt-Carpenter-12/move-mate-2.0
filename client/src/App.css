@@ -228,3 +228,13 @@ Form .search-btn:hover {
   width: 30%;
   margin-top: 12.5px
 }
+
+
+@media (max-width: 576px) {
+  .footer .logo {
+    margin-left: 35%;
+  }
+  .footer .icon {
+    margin: 1% 10%;
+  }
+}
