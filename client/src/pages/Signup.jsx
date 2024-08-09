@@ -14,8 +14,6 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  //set state for reminders
-  const [sendReminders, setSendReminders] = useState(false);
 
 
   //handles changes in form input fields
@@ -24,10 +22,6 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  //handles switch changes for reminders
-  const handleSwitchChange = (e) => {
-    setSendReminders(e.target.checked);
-  }
 
   // work being done once form is submitted
   const handleFormSubmit = async (event) => {
@@ -39,7 +33,7 @@ const SignupForm = () => {
       event.stopPropagation();
     }
     try {
-      const response = await createUser(userFormData, sendReminders);
+      const response = await createUser(userFormData);
         if (!response.ok) {
           throw new Error('something went wrong!');
         }
@@ -61,7 +55,7 @@ const SignupForm = () => {
       email: '',
       password: '',
     });
-    setSendReminders(false);
+
   };
 
   return (
@@ -101,14 +95,6 @@ const SignupForm = () => {
                 />
               <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
             </Form.Group>
-
-            <Form.Check
-                type="switch"
-                id="custom-switch"
-                label="Send me reminders to workout"
-                checked={sendReminders}
-                onChange={handleSwitchChange}
-            />
             
             <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
                 SIGN UP

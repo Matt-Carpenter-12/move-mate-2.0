@@ -39,7 +39,7 @@ function ExerciseCard() {
     }, []);
 
     const handleAddedExercise = () => {
-        Axios.post('http://localhost:3001/workouts', {
+        Axios.post('/workoutId/exercises', {
             name: selectedExercise.Workout,
             muscles: selectedExercise.Muscles,
             equipment: selectedExercise.Equipment,
