@@ -1,10 +1,7 @@
-.sidebar {
-    margin-top: 70px;
+.sidebar-col {
+    /* border-right: 1px solid black; */
+    margin-left: -40px;
 }
-
-/* .sidebar-col {
-    border-right: 1px solid black;
-} */
 
 .sidebar h5 svg {
     font-size: 25px;
@@ -17,12 +14,20 @@
     margin-left: 15px;
 }
 
+.sidebar .sidebar-title {
+    margin: 10px 0;
+}
+
+.sidebar .hide Input {
+    margin: 1px 0 10px 10px;
+}
+
 .offcanvas {
     margin-top:60px;
 }
 
 .sidebar button.offcanvas-btn {
-    margin-left: 40%;
+    margin-left: 50%;
 }
 
 .sidebar button.offcanvas-btn svg {
@@ -40,21 +45,17 @@
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 992px) {
     .sidebar .hide {
         display: none;
     }
 }
 
-/* 
-.sidebar input[type="radio"] {
-    background: url('../images/open-radio.svg')
+@media (min-width: 993px) and (max-width: 1040px) {
+    .sidebar-col {
+        margin-left: -20px;
+    }
 }
-
-.sidebar input[type="radio"]:checked {
-    background: url('../images/selected-radio.svg')
-
-} */
 
 /* 
 .sidebar .dropdown-title {
