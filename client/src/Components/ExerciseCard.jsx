@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Col, Card, Button, Modal, Container, Row } from 'react-bootstrap';
-import "../assets/css/getWorkouts.css";
+import "../assets/css/homepage.css";
 
 
 function ExerciseCard() {
@@ -69,7 +69,6 @@ function ExerciseCard() {
                             <Card.Subtitle className='mb-2'>{w.WorkOut}</Card.Subtitle>
                             <Card.Text>{w.Intensity_Level}</Card.Text>
                             <Button className='btn exercise-card-btn accent-btn'>+</Button>
-                            <Button className='btn exercise-card-btn'>Log Exercise</Button>
                             <Button onClick={() => handleShow(w)} className='btn exercise-card-btn'>Details</Button>
                         </Card.Body>
                     </Card>
