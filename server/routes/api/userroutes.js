@@ -19,7 +19,8 @@ router.post('/:id/form', async (req,res) => {
   try{
     const userId = req.params.id;
     const form = req.body
-
+    form.equipment = JSON.stringify(form.equipment);
+    
     const user = await User.findById(userId);
     if(!user){
       return res.status(404).json({ message: 'User not found.'});
