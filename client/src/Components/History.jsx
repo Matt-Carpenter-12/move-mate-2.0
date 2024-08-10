@@ -3,29 +3,51 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../assets/css/log.css"; // Custom styles for checkmarks
 
-const History = ({ workoutHistory }) => {
-  const [value, setValue] = useState(new Date());
+//fake static data to display until dynamic data takes place
 
-  const isWorkoutDay = (date) => {
-    // Check if the date matches any workout dates in your history
-    return workoutHistory.some((workoutDate) => {
-      const workoutDay = new Date(workoutDate).setHours(0, 0, 0, 0);
-      const currentDay = new Date(date).setHours(0, 0, 0, 0);
-      return workoutDay === currentDay;
-    });
-  };
 
-  const tileContent = ({ date, view }) => {
-    if (view === "month" && isWorkoutDay(date)) {
-      return <span className="workout-checkmark">✔️</span>;
-    }
-  };
 
+const History = ({}) => {
+  const completedWorkouts = [
+    { workout: "run", date: "1/1/11" },
+    { workout: "lift", date: "2/2/22" },
+    { workout: "stretch", date: "3/3/33" },
+    { workout: "lift", date: "4/4/44" },
+    { workout: "run", date: "5/5/55" },
+    { workout: "yoga", date: "6/6/66" },
+  ];
   return (
-    <div className="history-container">
-      <Calendar onChange={setValue} value={value} tileContent={tileContent} />
+    <div>
+      {completedWorkouts.map((workout) => {
+        return (
+          <div>
+            <h4>{workout.workout}</h4>
+            <p>{workout.date}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default History;
+
+// const History = ({ workoutHistory = [] }) => {
+//   const tileContent = ({ date, view }) => {
+//     const workoutDay = workoutHistory.find(
+//       (workoutDate) =>
+//         new Date(workoutDate).toDateString() === date.toDateString()
+//     );
+//     return view === "month" && workoutDay ? (
+//       <div className="workout-checkmark">✔️</div>
+//     ) : null;
+//   };
+
+//   return (
+//     <div className="history-container">
+//       <Calendar tileContent={tileContent} />
+//     </div>
+//   );
+// };
+
+// export default History;
