@@ -28,6 +28,7 @@ function Sidebar() {
     const getData = async (userId) => {
         try{
             const userId = sessionStorage.getItem('userId');
+            console.log(userId);
             const response = await fetch(`/api/users/${userId}`, {
                 method: 'GET',
                 headers: {

@@ -1,5 +1,6 @@
 import '../assets/css/login.css'
 import NavTabs from '../Components/NavTabs'
+import Auth from '../utils/auth';
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -39,7 +40,7 @@ function Login() {
 
       const { token, user } = await response.json();
       console.log(user);
-      //TODO: save user to client side (local storage or sessions)
+      sessionStorage.setItem('userId', user.id);
       Auth.login(token);
     } catch (err) {
       console.error(err);
