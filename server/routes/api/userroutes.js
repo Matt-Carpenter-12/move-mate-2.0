@@ -12,9 +12,22 @@ router.route('/login').post(login);
 //Route for profile (requires authentication middleware)
 router.route('/me').get(authMiddleware, getSingleUser);
 
+router.get('/:id', async (req,res) => {
+  try{
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if(!user){
+      return res.status(404).json({ message: 'User not found.'});
+    }
+    res.json(user)
 
-//TODO: make a route for /api/users/:id/form
-//make route that creates a new formSchema based on req.body from client and add to User model based on user Id
+  } catch(error){
+    res.status(500).json({ message: 'server error'});
+    console.error(error)
+  }
+})
+
+//Route that creates a new formSchema based on req.body from client and add to User model based on user Id
 router.post('/:id/form', async (req,res) => {
   try{
     const userId = req.params.id;

@@ -7,7 +7,7 @@ import { Offcanvas, Form } from 'react-bootstrap';
 
 function Sidebar() {
     const [show, setShow] = useState(false);
-    const [populateForm, setPopulateForm] = useState({level:"Expert", types:"All"});
+    const [populateForm, setPopulateForm] = useState({level:"", types:"", muscles: "", equipment: ""});
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -20,9 +20,34 @@ function Sidebar() {
     const types = ["All", "Strength Training", "Warm Up", "Stretching"];
     const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"]
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
+    
+
     //make GET request to get data user/:id
     //state update of form
     //update input value = selected data
+    const getData = async (userId) => {
+        try{
+            const userId = sessionStorage.getItem('userId');
+            const response = await fetch(`/api/users/${userId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                  }
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error("Error:",error)
+        }
+    }; 
+    getData();
+    
     return (
         <>
         <div className="sidebar">

@@ -96,14 +96,11 @@ const SignupForm = () => {
               <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
             </Form.Group>
             
-            <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
-                SIGN UP
-              </Button>
-            {/* <Link to='/Questionnaire'>
+            <Link to='/Questionnaire'>
               <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
                 SIGN UP
               </Button>
-            </Link> */}
+            </Link>
             
           </Form>
         </Card>

@@ -130,10 +130,10 @@ const Questionnaire = () => {
                         </Form.Select>
                     </Form.Group>
                 )}
+     
+                <Link to='/Homepage'>
                 <Button type="submit" className='survey-btn'>Submit</Button>
-                {/* <Link to='/Homepage'>
-                <Button type="submit" className='survey-btn'>Submit</Button>
-                </Link> */}
+                </Link>
             </fieldset>
             </Form>
         </Card>
