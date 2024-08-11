@@ -93,7 +93,7 @@ function Sidebar() {
                             <div key={`default-${muscle}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.muscle === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
+                                    variant={populateForm.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
                                     onClick={() => handleClick("muscle", muscle)}
                                 >
                                     {muscle}
@@ -103,7 +103,7 @@ function Sidebar() {
                     </Form>
 
                 <h6 className="sidebar-title">Equipment</h6>
-                <Form>
+                    <Form>
                         {equipment.map(equipment => (
                             <div key={`default-${equipment}`} className="mb-3">
                                 <Button
@@ -116,21 +116,6 @@ function Sidebar() {
                             </div>
                         ))}
                     </Form>
-                {/* <Form>
-                    {equipment.map(equipment => (
-                        <div key={`default-${equipment}`} className="mb-3">
-                            <Form.Check 
-                                type="radio"
-                                id={`default-${equipment}`}
-                                label={equipment}
-                                name="equipment"
-                                value={equipment === "None" ? "" : equipment}
-                                checked={populateForm.equipment === (equipment === "None" ? "" : equipment)}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-                </Form> */}
 
                 </div>
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className='offcanvas'>
