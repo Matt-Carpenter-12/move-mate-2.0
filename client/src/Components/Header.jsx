@@ -5,10 +5,15 @@ import { Container, Nav, Form, Row, Col, Button } from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
 import Auth from '../utils/auth'
 
+
 const Header = () => {
     const [currentLink, setCurrentLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
 
+    const handleInputChange = (event)=> {
+console.log(event.target.value) 
+
+    }
     useEffect(() => {
         const onScroll = () => {
             if (window.scrollY > 50) {
@@ -73,6 +78,7 @@ const Header = () => {
                         type="text"
                         placeholder="Search Exercises..."
                         className="mr-sm-2 search-input"
+                        onChange={handleInputChange}
                       />
                     </Col>
                     <Col xs="auto">
