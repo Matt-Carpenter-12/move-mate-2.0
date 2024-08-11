@@ -15,7 +15,12 @@
   To install this application locally, simply enter `npm i` into your terminal after cloning the repository from GitHub to install all of the dependencies.
 
   ## Usage
-  To start with Move Mate, sign up with your email and create a password. On the homepage, you can add exercises to any day of the week to create workouts that you can come back to every week. On the Workout History tab, see how consistent you can be with a fitness tracker. 
+  Visit Move Mate <a href="#"> here</a>. To start with Move Mate, sign up with your email and create a password. On the homepage, you can add exercises to any day of the week to create workouts that you can come back to every week. On the Workout History tab, see how consistent you can be with a fitness tracker. 
+  </br>
+  </br>
+  ![image](https://github.com/user-attachments/assets/d8c9914c-f70e-48b4-8e7e-1902cb4d077e)
+
+  </br>
   </br>
   Languages : JavaScript
 
