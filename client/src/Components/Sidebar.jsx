@@ -1,52 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../assets/css/sidebar.css'
 import { CiCirclePlus } from "react-icons/ci";
 import Input from './input';
-import { Offcanvas, Form } from 'react-bootstrap';
+import { Offcanvas, Form, Button, ButtonGroup } from 'react-bootstrap';
 
 
 function Sidebar() {
     const [show, setShow] = useState(false);
-    const [populateForm, setPopulateForm] = useState({level:"", types:"", muscles: "", equipment: ""});
-    
+    const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleChange = (e) => {
-        setPopulateForm({ ...populateForm, [e.target.name]: e.target.value });
-    };
-    
-    const levels = ["All", "Beginner", "Intermediate", "Expert"];
+    const handleClick = (key, value) => {
+        setPopulateForm({ ...populateForm, [key]: value === "All" || value === "All" ? "" : value });
+    }
+
+    const levels = ["all", "beginner", "intermediate", "expert"];
     const types = ["All", "Strength Training", "Warm Up", "Stretching"];
-    const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"]
+    const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"];
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
-    
 
-    //make GET request to get data user/:id
-    //state update of form
-    //update input value = selected data
-    const getData = async (userId) => {
-        try{
-            const userId = sessionStorage.getItem('userId');
-            const response = await fetch(`/api/users/${userId}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                  }
-            });
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const userId = sessionStorage.getItem('userId');
+                const response = await fetch(`/api/users/${userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                console.log("Response Data:", data);
+
+                const equipment = JSON.parse(data.form[0].equipment);
+                setPopulateForm(previous => ({ ...previous, level: data.form[0].fitnessLevel, equipment: equipment}));
+            } catch (error) {
+                console.error("Error:", error);
             }
-    
-            const data = await response.json();
-            console.log(data);
-            return data;
-        } catch (error) {
-            console.error("Error:",error)
-        }
-    }; 
-    getData();
+        };
+
+        getData();
+    }, []);
     
     return (
         <>
@@ -56,72 +57,65 @@ function Sidebar() {
              <h5>Add Filter <CiCirclePlus /></h5>
 
                 <h6 className='sidebar-title'>Intensity Level</h6>
+                    
                     <Form>
                         {levels.map(level => (
                             <div key={`default-${level}`} className="mb-3">
-                                <Form.Check 
-                                    type="radio"
-                                    id={`default-${level}`}
-                                    label={level}
-                                    name="level"
-                                    value={level === "All" ? "" : level}
-                                    checked={populateForm.level === (level === "All" ? "" : level)}
-                                    onChange={handleChange}
-                                />
+                                <Button
+                                    className="button-item"
+                                    variant={populateForm.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
+                                    onClick={() => handleClick("level", level)}
+                                >
+                                    {level}
+                                </Button>
                             </div>
                         ))}
-                    </Form>
+                    </Form>                
 
                 <h6 className="sidebar-title">Exercise Type</h6>
                     <Form>
-                        {types.map(types => (
-                            <div key={`default-${types}`} className="mb-3">
-                                <Form.Check 
-                                    type="radio"
-                                    id={`default-${types}`}
-                                    label={types}
-                                    name="types"
-                                    value={types === "All" ? "" : types}
-                                    checked={populateForm.types === (types === "All" ? "" : types)}
-                                    onChange={handleChange}
-                                />
+                        {types.map(type => (
+                            <div key={`default-${type}`} className="mb-3">
+                                <Button
+                                    className="button-item"
+                                    variant={populateForm.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
+                                    onClick={() => handleClick("types", type)}
+                                >
+                                    {type}
+                                </Button>
                             </div>
                         ))}
                     </Form>
                     
                 <h6 className="sidebar-title">Muscle Group</h6>
-                <Form>
-                    {muscles.map(muscle => (
-                        <div key={`default-${muscle}`} className="mb-3">
-                            <Form.Check 
-                                type="radio"
-                                id={`default-${muscle}`}
-                                label={muscle}
-                                name="muscles"
-                                value={muscle === "All" ? "" : muscle}
-                                checked={populateForm.muscles === (muscle === "All" ? "" : muscle)}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-                </Form>
+                    <Form>
+                        {muscles.map(muscle => (
+                            <div key={`default-${muscle}`} className="mb-3">
+                                <Button
+                                    className="button-item"
+                                    variant={populateForm.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
+                                    onClick={() => handleClick("muscle", muscle)}
+                                >
+                                    {muscle}
+                                </Button>
+                            </div>
+                        ))}
+                    </Form>
 
                 <h6 className="sidebar-title">Equipment</h6>
-                <Form>
-                    {equipment.map(equipment => (
-                        <div key={`default-${equipment}`} className="mb-3">
-                            <Form.Check 
-                                type="radio"
-                                id={`default-${equipment}`}
-                                label={equipment}
-                                name="equipment"
-                                value={equipment === "None" ? "" : equipment}
-                                checked={populateForm.equipment === (equipment === "None" ? "" : equipment)}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-                </Form>
+                    <Form>
+                        {equipment.map(equipment => (
+                            <div key={`default-${equipment}`} className="mb-3">
+                                <Button
+                                    className="button-item"
+                                    variant={populateForm.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
+                                    onClick={() => handleClick("equipment", equipment)}
+                                >
+                                    {equipment}
+                                </Button>
+                            </div>
+                        ))}
+                    </Form>
 
                 </div>
                 <Offcanvas show={show} onHide={handleClose} responsive="lg" className='offcanvas'>
