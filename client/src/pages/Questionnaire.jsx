@@ -82,9 +82,9 @@ const Questionnaire = () => {
                     <Form.Label>Select fitness level:</Form.Label>
                     <Form.Select value={fitnessLevel} onChange={handleTypeInput} required>
                             <option>Select one</option>
-                            <option>beginner</option>
-                            <option>intermediate</option>
-                            <option>expert</option>
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Expert</option>
                     </Form.Select>
                 </Form.Group>
 
@@ -92,25 +92,25 @@ const Questionnaire = () => {
                     <Form.Group className="mb-3">
                         <Form.Label>Select fitness Equipment:</Form.Label>
                             <ToggleButtonGroup type="checkbox" value={equipment} onChange={handleEquipmentInput}>
-                                <ToggleButton id="'bands" className='choice-btn' variant='warning' value='bands'>
+                                <ToggleButton id="bands" className='choice-btn' variant='warning' value='Resistance bands'>
                                     Resistance Bands
                                 </ToggleButton>
-                                <ToggleButton id="kettlebells" className='choice-btn' variant='warning' value='kettlebells'>
+                                <ToggleButton id="kettlebells" className='choice-btn' variant='warning' value='Kettlebells'>
                                     Kettlebells
                                 </ToggleButton>
-                                <ToggleButton id="dumbbells" className='choice-btn' variant='warning' value='dumbbells'>
+                                <ToggleButton id="dumbbells" className='choice-btn' variant='warning' value='Dumbbells'>
                                     Dumbbells
                                 </ToggleButton>
-                                <ToggleButton id="barbell" className='choice-btn' variant='warning' value='barbell'>
+                                <ToggleButton id="barbell" className='choice-btn' variant='warning' value='Barbell'>
                                     Barbell
                                 </ToggleButton>
-                                <ToggleButton id="squat-rack" className='choice-btn' variant='warning' value='squat-rack'>
+                                <ToggleButton id="squat-rack" className='choice-btn' variant='warning' value='Squat-rack'>
                                     Squat Rack
                                 </ToggleButton>
-                                <ToggleButton id="machines" className='choice-btn' variant='warning' value="machines">
+                                <ToggleButton id="machines" className='choice-btn' variant='warning' value="Machines">
                                     Gym Machines
                                 </ToggleButton>
-                                <ToggleButton id="bench" className='choice-btn' variant='warning' value='bench'>
+                                <ToggleButton id="bench" className='choice-btn' variant='warning' value='Bench'>
                                     Bench
                                 </ToggleButton>
                             </ToggleButtonGroup>
