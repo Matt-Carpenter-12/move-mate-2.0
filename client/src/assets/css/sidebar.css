@@ -22,6 +22,32 @@
     margin: 1px 0 10px 10px;
 }
 
+.sidebar .btn-secondary,
+.offcanvas .btn-secondary {
+    background-color: var(--dark-color) !important;
+    color: var(--light-color);
+    border: none;
+    border-radius: 6px;
+}
+
+.sidebar .btn-secondary:hover,
+.offcanvas .btn-secondary:hover {
+    background-color: var(--dark-color-transparent) !important;
+}
+
+.sidebar .btn-primary,
+.offcanvas .btn-primary {
+    background-color: var(--accent-color-oran) !important;
+    color: var(--light-color);
+    border: none;
+    border-radius: 6px;
+}
+
+.sidebar .btn-primary:hover,
+.offcanvas .btn-primary:hover {
+    background-color: var(--accent-color-oran-transparent) !important;
+} 
+
 .offcanvas {
     margin-top:60px;
 }
