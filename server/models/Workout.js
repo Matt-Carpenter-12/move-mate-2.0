@@ -28,13 +28,8 @@ const exerciseSchema = new Schema(
 
 const workoutSchema = new Schema(
     {
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true,
-        },
         date: {
-            type: Date,
+            type: String,
         },
         exercises: [exerciseSchema],
     }

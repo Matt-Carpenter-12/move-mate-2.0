@@ -15,7 +15,12 @@
   To install this application locally, simply enter `npm i` into your terminal after cloning the repository from GitHub to install all of the dependencies.
 
   ## Usage
-  To start with Move Mate, sign up with your email and create a password. On the homepage, you can add exercises to any day of the week to create workouts that you can come back to every week. On the Workout History tab, see how consistent you can be with a fitness tracker. 
+  Visit Move Mate <a href="#"> here</a>. To start with Move Mate, sign up with your email and create a password. On the homepage, you can add exercises to any day of the week to create workouts that you can come back to every week. On the Workout History tab, see how consistent you can be with a fitness tracker. 
+  </br>
+  </br>
+  ![image](https://github.com/user-attachments/assets/d8c9914c-f70e-48b4-8e7e-1902cb4d077e)
+
+  </br>
   </br>
   Languages : JavaScript
 
@@ -23,6 +28,12 @@
   Banner images by <a href="https://unsplash.com/@esdesignisms?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Emma Simpson</a> on <a href="https://unsplash.com/photos/woman-walking-on-pathway-during-daytime-mNGaaLeWEp0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> and <a href="https://unsplash.com/@magicpattern?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">MagicPattern</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-red-and-black-background-iAR6yhCkrxc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
   </br>
   </br>
+<<<<<<< HEAD
+=======
+  Icons from <a href='https://react-icons.github.io/react-icons/'>React Icons</a>.
+  </br>
+  </br>
+>>>>>>> 917993f13af6795516d73ff26937070865b45f85
   Created with the <a href='https://rapidapi.com/naeimsalib/api/work-out-api1'> Work Out API </a> from RapidAPI. 
   </br>
   </br>

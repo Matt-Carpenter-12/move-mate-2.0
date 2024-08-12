@@ -40,7 +40,7 @@ class AuthService {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
     //DO NOT CHANGE THIS URL/COULD BREAK CLIENT SIDE ROUTING ON DEPLOYMENT:)
-    window.location.assign('/');
+    window.location.assign('/Homepage');
   }
 
   logout() {
