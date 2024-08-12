@@ -2,13 +2,13 @@ import { Container, Row } from 'react-bootstrap';
 import "../assets/css/homepage.css";
 import ExerciseCard from './ExerciseCard.jsx'
 
-function GetWorkouts() {
+function GetWorkouts({ populateForm, setPopulateForm, selectedDay, setSelectedDay }) {
 
     return (
         <>
             <Container>
                 <Row >
-                    <ExerciseCard />
+                    <ExerciseCard populateForm={populateForm} setPopulateForm={setPopulateForm} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
                 </Row>
             </Container >
         </>

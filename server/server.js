@@ -4,7 +4,7 @@ const db = require('./config/connection');
 const routes = require('./routes');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
-const { Exercise } = require('./models/Workout');
+const { Workout } = require('./models/Workout');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,7 +19,11 @@ app.use(cors());
 app.get('/workouts', (req, res) => {
   //what was here before with original API / TODO: need to change hardcoded at the end
   //ORIGINAL: const url = 'https://work-out-api1.p.rapidapi.com/search?Muscles=chest&Intensity_Level=Beginner';
-  const url = 'https://api.api-ninjas.com/v1/exercises';
+
+  // const url = 'https://api.api-ninjas.com/v1/exercises';
+
+  const url =`https://api.api-ninjas.com/v1/exercises?difficulty=${req.query.difficulty}&muscle=${req.query.muscle}`;
+
     const options = {
         method: 'GET',
         headers: {
@@ -45,7 +49,7 @@ app.get('/workouts', (req, res) => {
 //Adds an exercise to the database
 app.post('/workouts', async (req, res) => {
   try {
-    const newExercise = await Exercise.create(req.body);
+    const newExercise = await Workout.create(req.body);
     console.log('New exercise added to the database');
   } catch (error) {
     console.error(error.message)

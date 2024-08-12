@@ -5,9 +5,11 @@ import Input from './input';
 import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 
-function Sidebar() {
+function Sidebar({ populateForm, setPopulateForm }) {
     const [show, setShow] = useState(false);
+
     const [filter, setFilter] = useState({ level: "", types: "", muscles: "", equipment: "" });
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -20,6 +22,7 @@ function Sidebar() {
     const types = ["All", "Strength Training", "Warm Up", "Stretching"];
     const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"];
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
+
 
     useEffect(() => {
         const getData = async () => {
@@ -45,6 +48,7 @@ function Sidebar() {
 
         getData();
     }, []);
+
     
     return (
         <>
