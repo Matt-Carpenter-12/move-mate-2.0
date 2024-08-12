@@ -5,9 +5,9 @@ import Input from './input';
 import { Offcanvas, Form, Button, ButtonGroup } from 'react-bootstrap';
 
 
-function Sidebar() {
+function Sidebar({ populateForm, setPopulateForm }) {
     const [show, setShow] = useState(false);
-    const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
+  
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -21,33 +21,6 @@ function Sidebar() {
     const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"];
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
 
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const userId = sessionStorage.getItem('userId');
-                const response = await fetch(`/api/users/${userId}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-                console.log("Response Data:", data);
-
-                const equipment = JSON.parse(data.form[0].equipment);
-                setPopulateForm(previous => ({ ...previous, level: data.form[0].fitnessLevel, equipment: equipment}));
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        };
-
-        getData();
-    }, []);
     
     return (
         <>
