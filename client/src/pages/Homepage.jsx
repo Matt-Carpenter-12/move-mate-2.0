@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../Components/Header'
 import Sidebar from '../Components/Sidebar';
 import GetWorkouts from '../Components/GetWorkouts';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import DayCard from '../Components/DayCard';
 
 
@@ -56,51 +56,23 @@ function Homepage() {
                         <Sidebar populateForm={populateForm} setPopulateForm={setPopulateForm}/>
                     </Col>
                     <Col xs={12} lg={10} className='workouts-col'>
-                    <h1 className='workouts-header'><span className="accent-color">SELECT A DAY </span>TO GET STARTED</h1>
+                    <h1 className='workouts-header'><span className="accent-color">ADD AN EXERCISE </span>TO YOUR CUSTOM WORKOUT</h1>
                     <Row>
-                        <Col lg={3} className='top-row'>
-                        <DayCard 
-                            day='SUNDAY'
-                            id='sun'
-                            />
-                        </Col>
-                        <Col lg={3} className='top-row'>
-                        <DayCard 
-                            day='MONDAY'
-                            id='mon'
-                            />
-                        </Col>
-                        <Col lg={3} className='top-row'>
-                            <DayCard 
-                            day='TUESDAY'
-                            id='tue'
-                            />
-                        </Col>
-                        <Col lg={3} className='top-row'>
-                            <DayCard 
-                            day='WEDNESDAY'
-                            id='wed'
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={4} className='bottom-row'>
-                            <DayCard 
-                            day='THURSDAY'
-                            id='thur'
-                            />
-                        </Col>
-                        <Col lg={4} className='bottom-row'>
-                            <DayCard 
-                            day='FRIDAY'
-                            id='fri'
-                            />
-                        </Col>
-                        <Col lg={4} className='bottom-row'>
-                            <DayCard 
-                            day='SATURDAY'
-                            id='sat'
-                            />
+                        <Col lg={12}>
+                        <Dropdown className='day-dropdown'>                       
+                            <Dropdown.Toggle id="dropdown-basic" className='day-toggle'>
+                                SELECT A DAY
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu className='day-menu'>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>SUNDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>MONDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>TUESDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>WEDNESDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>THURSDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle'>FRIDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item'>SATURDAY</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                         </Col>
                     </Row>
                         <GetWorkouts populateForm={populateForm} setPopulateForm={setPopulateForm} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>

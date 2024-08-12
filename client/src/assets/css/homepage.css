@@ -20,10 +20,42 @@
 .workouts-col .day-card:active {
     border: 4px solid var(--accent-color-oran);
 }
+.workouts-col .day-card .selected {
+    border: 4px solid var(--accent-color-oran);
+}
  
 .workouts-col .day-card .day-card-body {
     border-radius: 6px;
 }
+
+/* dropdown for the days */
+.day-dropdown .day-toggle:hover {
+    background-color: var(--accent-color-oran-transparent);
+}
+
+.day-dropdown .day-toggle:active {
+    background-color: var(--accent-color-oran);
+}
+
+.day-dropdown .day-toggle {
+    padding: 1% 50%;
+    background-color: var(--accent-color-oran);
+    color: var(--light-color);
+    border: none;
+}
+
+.day-dropdown .day-menu {
+    padding: 1% 6%;
+    border: 0.5px solid black;
+    text-align: center;
+}
+.day-dropdown .day-item {
+    margin: 5%;
+}
+.day-dropdown .day-item-middle {
+    border-bottom: 0.5px solid black;
+}
+
 .exercise-card {
     background-color: var(--ligh-color) !important;
     margin: 0 0 20px 30px;
