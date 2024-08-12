@@ -9,7 +9,6 @@
   * [Usage](#usage)
   * [Credits](#credits)
   * [Contact Me](#contact-me)
-  * [License](#license)
 
   ## Installation
   To install this application locally, simply enter `npm i` into your terminal after cloning the repository from GitHub to install all of the dependencies.
