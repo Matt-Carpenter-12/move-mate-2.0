@@ -6,10 +6,12 @@ import { CiCirclePlus } from "react-icons/ci";
 import { FiArrowRightCircle} from 'react-icons/fi'
 
 
-function ExerciseCard() {
+function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedDay }) {
     const [show, setShow] = useState(false);
     const [selectedExercise, setSelectedExercise] = useState(null);
     const [exercises, setExercises] = useState([]);
+
+    const [isDisabled, setIsDisabled] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = (exercise) => {
@@ -17,11 +19,21 @@ function ExerciseCard() {
         setShow(true);
     };
 
+    //Disables the add button if a day is not selected
+    useEffect(() => {
+        if (selectedDay != '') {
+            setIsDisabled(false)
+        } else {
+            setIsDisabled(true)
+        }
+    })
+
     const url = 'http://localhost:3001/workouts';
     const options = {
         method: 'GET'
     }
 
+    //Fetches the data from the workout api
     useEffect(() => {
         
         fetch(url, options)
