@@ -7,13 +7,15 @@ import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 function Sidebar({ populateForm, setPopulateForm }) {
     const [show, setShow] = useState(false);
-    // const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
+
+    const [filter, setFilter] = useState({ level: "", types: "", muscles: "", equipment: "" });
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleClick = (key, value) => {
-        setPopulateForm({ ...populateForm, [key]: value === "All" || value === "All" ? "" : value });
+        setFilter({ ...filter, [key]: value === "All" || value === "All" ? "" : value });
     }
 
     const levels = ["all", "beginner", "intermediate", "expert"];
@@ -21,11 +23,11 @@ function Sidebar({ populateForm, setPopulateForm }) {
     const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"];
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
 
+
     useEffect(() => {
         const getData = async () => {
             try {
                 const userId = sessionStorage.getItem('userId');
-                console.log('User: ',userId);
                 const response = await fetch(`/api/users/${userId}`, {
                     method: 'GET',
                     headers: {
@@ -46,6 +48,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
 
         getData();
     }, []);
+
     
     return (
         <>
@@ -61,7 +64,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${level}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
+                                    variant={filter.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
                                     onClick={() => handleClick("level", level)}
                                 >
                                     {level}
@@ -76,7 +79,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${type}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
+                                    variant={filter.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
                                     onClick={() => handleClick("types", type)}
                                 >
                                     {type}
@@ -91,7 +94,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${muscle}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
+                                    variant={filter.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
                                     onClick={() => handleClick("muscle", muscle)}
                                 >
                                     {muscle}
@@ -106,7 +109,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${equipment}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
+                                    variant={filter.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
                                     onClick={() => handleClick("equipment", equipment)}
                                 >
                                     {equipment}

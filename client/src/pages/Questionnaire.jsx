@@ -91,7 +91,7 @@ const Questionnaire = () => {
                 {showEquipment && (
                     <Form.Group className="mb-3">
                         <Form.Label>Select fitness Equipment:</Form.Label>
-                            <ToggleButtonGroup type="checkbox" value={equipment} onChange={handleEquipmentInput}>
+                            <ToggleButtonGroup type="radio" name='equipment' value={equipment} onChange={handleEquipmentInput}>
                                 <ToggleButton id="bands" className='choice-btn' variant='warning' value='Resistance bands'>
                                     Resistance Bands
                                 </ToggleButton>
