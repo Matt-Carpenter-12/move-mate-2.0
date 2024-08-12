@@ -28,7 +28,17 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
         }
     })
 
-    const url = 'http://localhost:3001/workouts';
+    let url = 'http://localhost:3001/workouts?';
+
+    //Updates the url 
+    if (populateForm.level != '') {
+        url += `difficulty=${populateForm.level.toLowerCase()}`
+    }
+    if (populateForm.muscle != '') {
+        url += `&muscle=${populateForm.muscle.toLowerCase()}`
+        console.log(url)
+    }
+
     const options = {
         method: 'GET'
     }
@@ -52,8 +62,10 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
 
-
-    const handleAddedExercise = async() => {
+    //Saves the added exercises to the database
+    const handleAddedExercise = async (exercise) => {
+        console.log(exercise)
+        console.log(selectedDay)
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -61,19 +73,47 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: selectedExercise.Workout,
-                    muscles: selectedExercise.Muscles,
-                    equipment: selectedExercise.Equipment,
-                    intensity_level: selectedExercise.Intensity_Level,
-                    explanation: selectedExercise.Basic_Explanation
+                    day: selectedDay,
+                    exercise: 
+                    {
+                        name: exercise.name,
+                        muscles: exercise.muscle,
+                        equipment: exercise.equipment,
+                        intensity_level: exercise.difficulty,
+                        explanation: exercise.instructions
+                    }
                 })
             });
             const data = await response.json();
             console.log(data);
         } catch (error) {
+            res.json(error)
             console.error(error.message)
         }
     }
+
+    //Adds exercises from the modal
+    // const handleAddedExercise = async() => {
+    //     try {
+    //         const response = await fetch(url, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 name: selectedExercise.Workout,
+    //                 muscles: selectedExercise.Muscles,
+    //                 equipment: selectedExercise.Equipment,
+    //                 intensity_level: selectedExercise.Intensity_Level,
+    //                 explanation: selectedExercise.Basic_Explanation
+    //             })
+    //         });
+    //         const data = await response.json();
+    //         console.log(data);
+    //     } catch (error) {
+    //         console.error(error.message)
+    //     }
+    // }
 
     return (
         <>
