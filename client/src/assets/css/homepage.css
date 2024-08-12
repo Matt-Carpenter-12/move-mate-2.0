@@ -20,6 +20,9 @@
 .workouts-col .day-card:active {
     border: 4px solid var(--accent-color-oran);
 }
+.workouts-col .day-card .selected {
+    border: 4px solid var(--accent-color-oran);
+}
  
 .workouts-col .day-card .day-card-body {
     border-radius: 6px;
