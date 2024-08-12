@@ -6,13 +6,33 @@ import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
 import '../assets/css/myworkouts.css'
 
-function MyWorkouts() { 
+function MyWorkouts() {
+
+    const [workouts, setWorkouts] = useState([]);
+    const [day, setDay] = useState([]);
+
+    useEffect(async () => {
+        try {
+            const response = await fetch('/api/workouts');
+            const data = await response.json();
+            
+            console.log(data)
+            console.log(data[0]._id)
+
+            setWorkouts(data);
+            setDay(data[0].day)
+
+        } catch (error) {
+            console.error(error.message)
+        }
+    }, [])
+
     return (
         <>
             <Header />
             <div className="my-workouts">
                 <h1 className='my-workouts-header'>MY WORKOUTS</h1>
-                
+
                 <Accordion>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Sunday</Accordion.Header>
