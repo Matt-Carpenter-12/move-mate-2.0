@@ -22,7 +22,6 @@ function Homepage() {
         const getData = async () => {
             try {
                 const userId = sessionStorage.getItem('userId');
-                console.log('User: ', userId);
                 const response = await fetch(`/api/users/${userId}`, {
                     method: 'GET',
                     headers: {

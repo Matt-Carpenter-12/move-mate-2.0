@@ -36,6 +36,7 @@ const SignupForm = () => {
     }
     try {
       const response = await createUser(userFormData);
+      console.log("Data:",userFormData)
         if (!response.ok) {
           throw new Error('something went wrong!');
         }
@@ -97,12 +98,14 @@ const SignupForm = () => {
                 />
               <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
             </Form.Group>
-            
-            <Link to='/Questionnaire'>
+            <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
+                SIGN UP
+            </Button>
+            {/* <Link to='/Questionnaire'>
               <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
                 SIGN UP
               </Button>
-            </Link>
+            </Link> */}
             
           </Form>
         </Card>
