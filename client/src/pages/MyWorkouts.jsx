@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
-import MyWorkoutCards from '../Components/MyWorkoutCard';
+import MyWorkoutCards from '../Components/MyWorkoutCards';
 import '../assets/css/myworkouts.css'
 
 function MyWorkouts() {
