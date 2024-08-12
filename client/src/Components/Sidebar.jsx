@@ -5,7 +5,7 @@ import Input from './input';
 import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 
-function Sidebar() {
+function Sidebar({ populateForm, setPopulateForm }) {
     const [show, setShow] = useState(false);
     const [filter, setFilter] = useState({ level: "", types: "", muscles: "", equipment: "" });
 

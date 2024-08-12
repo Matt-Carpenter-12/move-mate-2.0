@@ -15,6 +15,10 @@ const userSchema = new Schema(
             required: true,
         },
         form: [formSchema],
+        workouts: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Workout'
+        }]
     },
 
     {
