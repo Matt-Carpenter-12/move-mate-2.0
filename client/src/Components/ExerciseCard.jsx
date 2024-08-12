@@ -32,10 +32,10 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
 
     //Updates the url 
     if (populateForm.level != '') {
-        url += `difficulty=${populateForm.level.toLowerCase()}`
+        // url += `difficulty=${populateForm.level.toLowerCase()}`
     }
     if (populateForm.muscle != '') {
-        url += `&muscle=${populateForm.muscle.toLowerCase()}`
+        // url += `&muscle=${populateForm.muscle.toLowerCase()}`
         console.log(url)
     }
 
@@ -92,28 +92,6 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
         }
     }
 
-    //Adds exercises from the modal
-    // const handleAddedExercise = async() => {
-    //     try {
-    //         const response = await fetch(url, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 name: selectedExercise.Workout,
-    //                 muscles: selectedExercise.Muscles,
-    //                 equipment: selectedExercise.Equipment,
-    //                 intensity_level: selectedExercise.Intensity_Level,
-    //                 explanation: selectedExercise.Basic_Explanation
-    //             })
-    //         });
-    //         const data = await response.json();
-    //         console.log(data);
-    //     } catch (error) {
-    //         console.error(error.message)
-    //     }
-    // }
 
     return (
         <>
@@ -124,7 +102,7 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
                             <Card.Title>Bicep Curl{w.WorkOut}</Card.Title>
                             <Card.Subtitle className='mb-2'>Targets Biceps{w.Muscles}</Card.Subtitle>
                             <Card.Text>Beginner{w.Intensity_Level}</Card.Text>
-                            <Button className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
+                            <Button onClick={(event) => { event.preventDefault(); handleAddedExercise(w) }} disabled={isDisabled} className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
                             <Button onClick={() => handleShow(w)} className='btn exercise-card-btn details-btn'>Details <FiArrowRightCircle /></Button>
                         </Card.Body>
                     </Card>
