@@ -29,7 +29,7 @@ const exerciseSchema = new Schema(
 const workoutSchema = new Schema(
     {
         date: {
-            type: Sting,
+            type: String,
         },
         exercises: [exerciseSchema],
     }
