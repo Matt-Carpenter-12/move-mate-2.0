@@ -7,6 +7,10 @@ import DayCard from '../Components/DayCard';
 
 
 function Homepage() {
+    const [selectedDay, setSelectedDay] = useState('');
+
+    const [workouts, setWorkouts] = useState([])
+
     const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
 
     useEffect(() => {
@@ -94,7 +98,7 @@ function Homepage() {
                             />
                         </Col>
                     </Row>
-                        <GetWorkouts />
+                        <GetWorkouts populateForm={populateForm} setPopulateForm={setPopulateForm} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
                     </Col>
                 </Row>
             </Container>
