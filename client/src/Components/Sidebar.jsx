@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import '../assets/css/sidebar.css'
 import { CiCirclePlus } from "react-icons/ci";
 import Input from './input';
-import { Offcanvas, Form, Button, ButtonGroup } from 'react-bootstrap';
+import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 
 function Sidebar() {
     const [show, setShow] = useState(false);
-    const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
+    const [filter, setFilter] = useState({ level: "", types: "", muscles: "", equipment: "" });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleClick = (key, value) => {
-        setPopulateForm({ ...populateForm, [key]: value === "All" || value === "All" ? "" : value });
+        setFilter({ ...filter, [key]: value === "All" || value === "All" ? "" : value });
     }
 
     const levels = ["all", "beginner", "intermediate", "expert"];
@@ -38,9 +38,6 @@ function Sidebar() {
 
                 const data = await response.json();
                 console.log("Response Data:", data);
-
-                const equipment = JSON.parse(data.form[0].equipment);
-                setPopulateForm(previous => ({ ...previous, level: data.form[0].fitnessLevel, equipment: equipment}));
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -63,7 +60,7 @@ function Sidebar() {
                             <div key={`default-${level}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
+                                    variant={filter.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
                                     onClick={() => handleClick("level", level)}
                                 >
                                     {level}
@@ -78,7 +75,7 @@ function Sidebar() {
                             <div key={`default-${type}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
+                                    variant={filter.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
                                     onClick={() => handleClick("types", type)}
                                 >
                                     {type}
@@ -93,7 +90,7 @@ function Sidebar() {
                             <div key={`default-${muscle}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
+                                    variant={filter.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
                                     onClick={() => handleClick("muscle", muscle)}
                                 >
                                     {muscle}
@@ -108,7 +105,7 @@ function Sidebar() {
                             <div key={`default-${equipment}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={populateForm.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
+                                    variant={filter.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
                                     onClick={() => handleClick("equipment", equipment)}
                                 >
                                     {equipment}

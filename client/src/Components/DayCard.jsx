@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 
   return (
     <div>
-        <Card onClick={() => handleCardClick(id)} id={id} className={`day-card ${selectedCard === id ? 'selected' : ''}`}>
+        <Card onClick={() => handleCardClick(id)} id={id} className={`day-card ${selectedCard === id ? 'selected' : ""}`}>
           <Card.Body className="day-card-body">
           <Card.Title className="day-card-title">{day}</Card.Title>
           {/* <Card.Text></Card.Text> */}
