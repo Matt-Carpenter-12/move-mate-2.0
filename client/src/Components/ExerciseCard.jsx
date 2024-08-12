@@ -39,14 +39,14 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
         console.log(url)
     }
 
-    const options = {
-        method: 'GET'
-    }
+    // const options = {
+    //     method: 'GET'
+    // }
 
     //Fetches the data from the workout api
     useEffect(() => {
         
-        fetch(url, options)
+        fetch(url)
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -99,9 +99,9 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
                 {exercises.map((w) => (
                     <Card className="exercise-card" key={w.id}>
                         <Card.Body className='exercise-card-body'>
-                            <Card.Title>Bicep Curl{w.WorkOut}</Card.Title>
-                            <Card.Subtitle className='mb-2'>Targets Biceps{w.Muscles}</Card.Subtitle>
-                            <Card.Text>Beginner{w.Intensity_Level}</Card.Text>
+                            <Card.Title>Bicep Curl{w.name}</Card.Title>
+                            <Card.Subtitle className='mb-2'>Targets Biceps{w.muscles}</Card.Subtitle>
+                            <Card.Text>Beginner{w.difficulty}</Card.Text>
                             <Button onClick={(event) => { event.preventDefault(); handleAddedExercise(w) }} disabled={isDisabled} className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
                             <Button onClick={() => handleShow(w)} className='btn exercise-card-btn details-btn'>Details <FiArrowRightCircle /></Button>
                         </Card.Body>
