@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
+import MyWorkoutCards from '../Components/MyWorkoutCard';
 import '../assets/css/myworkouts.css'
 
 function MyWorkouts() {
@@ -15,7 +16,7 @@ function MyWorkouts() {
         try {
             const response = await fetch('/api/workouts');
             const data = await response.json();
-            
+
             console.log(data)
             console.log(data[0]._id)
 
@@ -37,6 +38,7 @@ function MyWorkouts() {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Sunday</Accordion.Header>
                         <Accordion.Body>
+                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} />
 
                         </Accordion.Body>
                     </Accordion.Item>
