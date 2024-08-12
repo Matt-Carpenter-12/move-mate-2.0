@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { Workout } = require ('../../models/Workout')
+const { Workout } = require ('../../models/Workout');
+const { getWorkouts } = require('../../controllers/workoutControllers');
+
+router.route('/').get(getWorkouts);
 
 router.post('/workoutId/exercises', async (req,res) => {
     try{ 
