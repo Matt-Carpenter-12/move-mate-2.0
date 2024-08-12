@@ -6,10 +6,12 @@ import { CiCirclePlus } from "react-icons/ci";
 import { FiArrowRightCircle} from 'react-icons/fi'
 
 
-function ExerciseCard() {
+function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedDay }) {
     const [show, setShow] = useState(false);
     const [selectedExercise, setSelectedExercise] = useState(null);
     const [exercises, setExercises] = useState([]);
+
+    const [isDisabled, setIsDisabled] = useState(true);
 
     const handleClose = () => setShow(false);
     const handleShow = (exercise) => {
@@ -17,11 +19,31 @@ function ExerciseCard() {
         setShow(true);
     };
 
-    const url = 'http://localhost:3001/workouts';
+    //Disables the add button if a day is not selected
+    useEffect(() => {
+        if (selectedDay != '') {
+            setIsDisabled(false)
+        } else {
+            setIsDisabled(true)
+        }
+    })
+
+    let url = 'http://localhost:3001/workouts?';
+
+    //Updates the url 
+    if (populateForm.level != '') {
+        // url += `difficulty=${populateForm.level.toLowerCase()}`
+    }
+    if (populateForm.muscle != '') {
+        // url += `&muscle=${populateForm.muscle.toLowerCase()}`
+        console.log(url)
+    }
+
     const options = {
         method: 'GET'
     }
 
+    //Fetches the data from the workout api
     useEffect(() => {
         
         fetch(url, options)
@@ -40,8 +62,10 @@ function ExerciseCard() {
             .catch(err => console.error('Fetch error:', err.message));
     }, []);
 
-
-    const handleAddedExercise = async() => {
+    //Saves the added exercises to the database
+    const handleAddedExercise = async (exercise) => {
+        console.log(exercise)
+        console.log(selectedDay)
         try {
             const response = await fetch(url, {
                 method: 'POST',
@@ -49,19 +73,25 @@ function ExerciseCard() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: selectedExercise.Workout,
-                    muscles: selectedExercise.Muscles,
-                    equipment: selectedExercise.Equipment,
-                    intensity_level: selectedExercise.Intensity_Level,
-                    explanation: selectedExercise.Basic_Explanation
+                    day: selectedDay,
+                    exercise: 
+                    {
+                        name: exercise.name,
+                        muscles: exercise.muscle,
+                        equipment: exercise.equipment,
+                        intensity_level: exercise.difficulty,
+                        explanation: exercise.instructions
+                    }
                 })
             });
             const data = await response.json();
             console.log(data);
         } catch (error) {
+            res.json(error)
             console.error(error.message)
         }
     }
+
 
     return (
         <>
@@ -72,7 +102,7 @@ function ExerciseCard() {
                             <Card.Title>Bicep Curl{w.WorkOut}</Card.Title>
                             <Card.Subtitle className='mb-2'>Targets Biceps{w.Muscles}</Card.Subtitle>
                             <Card.Text>Beginner{w.Intensity_Level}</Card.Text>
-                            <Button className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
+                            <Button onClick={(event) => { event.preventDefault(); handleAddedExercise(w) }} disabled={isDisabled} className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
                             <Button onClick={() => handleShow(w)} className='btn exercise-card-btn details-btn'>Details <FiArrowRightCircle /></Button>
                         </Card.Body>
                     </Card>
