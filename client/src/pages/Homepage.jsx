@@ -11,6 +11,11 @@ function Homepage() {
 
     const [workouts, setWorkouts] = useState([])
 
+    const handleSelectDay = (event) => {
+        console.log(event.target.value);
+        setSelectedDay(event.target.value);
+    };
+
     const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
 
     useEffect(() => {
