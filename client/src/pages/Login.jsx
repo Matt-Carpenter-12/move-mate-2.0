@@ -40,7 +40,7 @@ function Login() {
 
       const { token, user } = await response.json();
       console.log(user);
-      sessionStorage.setItem('userId', user.id);
+      sessionStorage.setItem('userId', user._id);
       Auth.login(token);
     } catch (err) {
       console.error(err);
@@ -89,11 +89,10 @@ function Login() {
                             <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                         </Form.Group>
                         <Form.Check type="checkbox" label="Remember Me" />
-                        <Link to='/Homepage'>
-                            <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className="btn login-btn">
+                        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className="btn login-btn">
                                 LOGIN
                             </Button>
-                        </Link>
+            
                     </Form>
                 </Card>
             </div>

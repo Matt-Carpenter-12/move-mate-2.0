@@ -7,13 +7,13 @@ import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 function Sidebar({ populateForm, setPopulateForm }) {
     const [show, setShow] = useState(false);
-    const [filter, setFilter] = useState({ level: "", types: "", muscles: "", equipment: "" });
+    // const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleClick = (key, value) => {
-        setFilter({ ...filter, [key]: value === "All" || value === "All" ? "" : value });
+        setPopulateForm({ ...populateForm, [key]: value === "All" || value === "All" ? "" : value });
     }
 
     const levels = ["all", "beginner", "intermediate", "expert"];
@@ -25,6 +25,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
         const getData = async () => {
             try {
                 const userId = sessionStorage.getItem('userId');
+                console.log('User: ',userId);
                 const response = await fetch(`/api/users/${userId}`, {
                     method: 'GET',
                     headers: {
@@ -60,7 +61,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${level}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={filter.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
+                                    variant={populateForm.level === (level === "all" ? "" : level) ? "primary" : "secondary"}
                                     onClick={() => handleClick("level", level)}
                                 >
                                     {level}
@@ -75,7 +76,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${type}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={filter.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
+                                    variant={populateForm.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
                                     onClick={() => handleClick("types", type)}
                                 >
                                     {type}
@@ -90,7 +91,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${muscle}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={filter.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
+                                    variant={populateForm.muscles === (muscle === "All" ? "" : muscle) ? "primary" : "secondary"}
                                     onClick={() => handleClick("muscle", muscle)}
                                 >
                                     {muscle}
@@ -105,7 +106,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
                             <div key={`default-${equipment}`} className="mb-3">
                                 <Button
                                     className="button-item"
-                                    variant={filter.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
+                                    variant={populateForm.equipment === (equipment === "All" ? "" : equipment) ? "primary" : "secondary"}
                                     onClick={() => handleClick("equipment", equipment)}
                                 >
                                     {equipment}

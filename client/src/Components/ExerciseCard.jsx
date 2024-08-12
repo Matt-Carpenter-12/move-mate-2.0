@@ -32,10 +32,10 @@ function ExerciseCard({ populateForm, setPopulateForm, selectedDay, setSelectedD
 
     //Updates the url 
     if (populateForm.level != '') {
-        // url += `difficulty=${populateForm.level.toLowerCase()}`
+        url += `difficulty=${populateForm.level}`
     }
     if (populateForm.muscle != '') {
-        // url += `&muscle=${populateForm.muscle.toLowerCase()}`
+        url += `&muscle=${populateForm.muscle}`
         console.log(url)
     }
 
