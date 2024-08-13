@@ -4,7 +4,8 @@ const { authMiddleware } = require('../../utils/auth');
 const User = require('../../models/User');
 
 //Route for Signup
-router.route('/signup').post(createUser);
+// router.route('/signup').post(createUser);
+router.route('/').post(createUser);
 
 //Route for Login
 router.route('/login').post(login);
