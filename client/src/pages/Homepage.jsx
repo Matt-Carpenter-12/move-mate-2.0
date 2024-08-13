@@ -2,10 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../Components/Header'
 import Sidebar from '../Components/Sidebar';
 import GetWorkouts from '../Components/GetWorkouts';
-import { Col, Container, Row, Button, Dropdown, DropdownButton } from 'react-bootstrap';
-import DayCard from '../Components/DayCard';
-import { CiFaceSmile } from 'react-icons/ci';
-
+import { Col, Container, Row, Dropdown } from 'react-bootstrap';
 
 function Homepage() {
     const [selectedDay, setSelectedDay] = useState('');

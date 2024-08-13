@@ -50,7 +50,7 @@ const StarCalendar = () => {
             <button className='btn star-btn' onClick={handleStarClick}>
               {selectedDate && starredDates.has(selectedDate.toDateString())
                 ? "Remove Workout from Log"
-                : "Add Workout to Log"}
+                : "Complete Workout"}
             </button>
           </Col>
         </Row>
