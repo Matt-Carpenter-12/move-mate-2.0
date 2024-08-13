@@ -22,7 +22,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
 
     useEffect(() => {
 
-        let url = '/workouts?';
+        let url = 'http://localhost:3001/workouts?';
         const level = JSON.parse(localStorage.getItem('level'))
         // console.log(level)
         const muscle = JSON.parse(localStorage.getItem('muscle'))
@@ -72,7 +72,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
         }
     }, [selectedDay])
 
-    let url = '/workouts?';
+    let url = 'http://localhost:3001/workouts?';
 
     //Fetches the data from the workout api
     useEffect(() => {
