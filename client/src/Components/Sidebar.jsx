@@ -40,7 +40,6 @@ function Sidebar({ populateForm, setPopulateForm }) {
                 }
 
                 const data = await response.json();
-                console.log("Response Data:", data);
             } catch (error) {
                 console.error("Error:", error);
             }
