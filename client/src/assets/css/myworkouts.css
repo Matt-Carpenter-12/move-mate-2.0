@@ -1,4 +1,21 @@
 .my-workouts-header {
-    margin-top: 100px;
+    margin: 100px 0 35px 0;
     text-align: center;
+}
+
+.accordion-button:focus {
+    box-shadow:none;
+}
+
+.accordion-button:hover {
+    background-color: var(--light-color);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--dark-color) !important;
+    color: var(--light-color) !important;
+}
+
+.accordion {
+    margin-bottom: 35px;
 }

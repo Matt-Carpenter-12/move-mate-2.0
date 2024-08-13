@@ -3,8 +3,13 @@
 }
 
 .workouts-header {
-    margin: 10px 0 30px 0;
+    margin: 10px 0;
     text-align: center;
+}
+
+.workouts-subheader {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .workouts-col .day-card {
@@ -20,6 +25,7 @@
 .workouts-col .day-card:active {
     border: 4px solid var(--accent-color-oran);
 }
+
 .workouts-col .day-card .selected {
     border: 4px solid var(--accent-color-oran);
 }
@@ -38,7 +44,7 @@
 }
 
 .day-dropdown .day-toggle {
-    padding: 1% 50%;
+    padding: 1% 45%;
     background-color: var(--accent-color-oran);
     color: var(--light-color);
     border: none;
@@ -49,13 +55,38 @@
     border: 0.5px solid black;
     text-align: center;
 }
+
+.day-dropdown .day-menu.dropdown-menu.show {
+    margin-left: 38%;
+}
+
+.day-dropdown .day-item:active {
+    background-color: var(--accent-color-oran) !important;
+}
+
 .day-dropdown .day-item {
     margin: 5%;
 }
+
 .day-dropdown .day-item-middle {
     border-bottom: 0.5px solid black;
 }
 
+.day-subtitle {
+    text-align: center;
+    margin: 1% 0;
+}
+
+@media (max-width:991px) {
+    .day-dropdown .day-toggle {
+        padding: 1% 40%;
+    }
+    .day-dropdown .day-menu.dropdown-menu.show {
+        margin-left:0;
+    }
+}
+
+/* cards with api info */
 .exercise-card {
     background-color: var(--ligh-color) !important;
     margin: 0 0 20px 30px;

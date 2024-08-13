@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import '../assets/css/calendar.css'
 
 const StarCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
