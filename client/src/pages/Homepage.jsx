@@ -9,11 +9,8 @@ import DayCard from '../Components/DayCard';
 function Homepage() {
     const [selectedDay, setSelectedDay] = useState('');
 
-    const [workouts, setWorkouts] = useState([])
-    const [dropdown, setDropdown] = useState('');
-
     const handleSelectDay = (day) => {
-        console.log(day);
+        // console.log(day);
         setSelectedDay(day);
     };
     
@@ -65,13 +62,13 @@ function Homepage() {
                                 SELECT A DAY
                             </Dropdown.Toggle>
                             <Dropdown.Menu className='day-menu'>
-                                <Dropdown.Item value="Sunday" href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Sunday')}>SUNDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Monday')}>MONDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Tuesday')}>TUESDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Wednesday')}>WEDNESDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Thursday')}>THURSDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ (e) => handleSelectDay('Friday')}>FRIDAY</Dropdown.Item>
-                                <Dropdown.Item href="#" className='day-item' onClick={ (e) => handleSelectDay('Saturday')}>SATURDAY</Dropdown.Item>
+                                <Dropdown.Item value="Sunday" href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Sunday')}>SUNDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Monday')}>MONDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Tuesday')}>TUESDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Wednesday')}>WEDNESDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Thursday')}>THURSDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item day-item-middle' onClick={ () => handleSelectDay('Friday')}>FRIDAY</Dropdown.Item>
+                                <Dropdown.Item href="#" className='day-item' onClick={ () => handleSelectDay('Saturday')}>SATURDAY</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         </Col>
