@@ -2,7 +2,7 @@
 import Header from "../Components/Header";
 import { Container, Row, Col } from "react-bootstrap";
 import "../assets/css/log.css";
-import WorkoutHistory from "../Components/WorkoutsHistory";
+import StarCalendar from "../Components/Calendar";
 
 function Log() {
   return (
@@ -18,7 +18,7 @@ function Log() {
               </h2>
             </Col>
             <Col lg={9}>
-              <WorkoutHistory />
+              <StarCalendar />
             </Col>
           </Row>
         </Container>
