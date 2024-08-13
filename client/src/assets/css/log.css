@@ -2,10 +2,14 @@
     margin-top: 120px;
 }
 
-.log-header {
-    text-align: center;
-}
-
 span.accent-color {
     color: var(--accent-color-oran);
+}
+
+/* media queries for responsiveness */
+@media (max-width:991px) {
+    .log h2 {
+        text-align: center;
+        margin: 3% 5%;
+    }
 }

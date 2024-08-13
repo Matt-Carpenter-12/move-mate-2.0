@@ -13,7 +13,7 @@ function Log() {
           <Row>
             <Col xs={12} lg={3}>
               <h2>
-                SELECT A DATE TO SEE YOUR{" "}
+                SELECT A DATE TO ADD TO YOUR{" "}
                 <span className="accent-color">WORKOUT HISTORY</span>
               </h2>
             </Col>
