@@ -59,9 +59,8 @@ function Homepage() {
                     <Col xs={12} lg={2} className='sidebar-col'>
                         <Sidebar populateForm={populateForm} setPopulateForm={setPopulateForm}/>
                     </Col>
-                    <Col xs={12} lg={10} className='workouts-col'>
+                    <Col xs={12} lg={10} className='workouts-col' align="center">
                     <h1 className='workouts-header'><span className="accent-color">ADD AN EXERCISE </span>TO YOUR CUSTOM WORKOUT</h1>
-                    <h4 className='workouts-subheader'>Select a day from the dropdown and then add your exercises</h4>
                     <Row>
                         <Col lg={12}>
                         <Dropdown  className='day-dropdown' >                       

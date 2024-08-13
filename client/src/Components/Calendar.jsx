@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import '../assets/css/calendar.css'
@@ -35,18 +36,26 @@ const StarCalendar = () => {
   };
 
   return (
-    <div className="calendar-container">
-      <Calendar
-        onChange={handleDateChange}
-        value={selectedDate}
-        tileContent={tileContent}
-      />
-      <button onClick={handleStarClick}>
-        {selectedDate && starredDates.has(selectedDate.toDateString())
-          ? "Unstar Date"
-          : "Star Date"}
-      </button>
-    </div>
+    // <div >
+      <Container className="calendar-container">
+        <Row>
+          <Col align="center">
+            <Calendar
+              className='calendar'
+              calendarType='gregory'
+              onChange={handleDateChange}
+              value={selectedDate}
+              tileContent={tileContent}
+            />
+            <button className='btn star-btn' onClick={handleStarClick}>
+              {selectedDate && starredDates.has(selectedDate.toDateString())
+                ? "Remove Workout from Log"
+                : "Add Workout to Log"}
+            </button>
+          </Col>
+        </Row>
+      </Container>
+    // </div>
   );
 };
 
