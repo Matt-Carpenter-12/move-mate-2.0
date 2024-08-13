@@ -34,14 +34,11 @@ function MyWorkoutCards({ activeItem }) {
                         return (
                             exercises.exercise.map((data) => {
                                 return (
-                                    <Card key={data._id} style={{ width: '18rem' }}>
-                                        <Card.Body>
-                                            <Card.Title>{data.name}</Card.Title>
-                                            <Card.Subtitle className="mb-2 text-muted">Muscle: {data.muscles}</Card.Subtitle>
-                                            <Card.Text>{data.intensity_level}
-                                            </Card.Text>
-                                            <Card.Link href="#">Card Link</Card.Link>
-                                            <Card.Link href="#">Another Link</Card.Link>
+                                    <Card key={data._id} style={{ width: '18rem' }} className='my-workout-card'>
+                                        <Card.Body className='my-workout-card-body'>
+                                            <Card.Title className='my-workout-card-title'>{data.name}</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">Targets <span className="accent-color">{data.muscles}</span></Card.Subtitle>
+                                            <Card.Text>{data.intensity_level}</Card.Text>
                                         </Card.Body>
                                     </Card>
                                 )

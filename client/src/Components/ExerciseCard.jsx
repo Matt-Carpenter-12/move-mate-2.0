@@ -142,7 +142,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                 {selectedExercise && (
                     <>
                         <Modal.Header closeButton>
-                            <Modal.Title>{selectedExercise.WorkOut}</Modal.Title>
+                            
                         </Modal.Header>
                         <Modal.Body>
                             <Container>
