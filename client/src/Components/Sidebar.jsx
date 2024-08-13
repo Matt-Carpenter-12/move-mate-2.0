@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../assets/css/sidebar.css'
 import { CiCirclePlus } from "react-icons/ci";
-// import Input from './input';
 import { Offcanvas, Form, Button } from 'react-bootstrap';
 
 
@@ -20,7 +19,6 @@ function Sidebar({ populateForm, setPopulateForm }) {
     }
 
     const levels = ["All", "Beginner", "Intermediate", "Expert"];
-    // const types = ["All", "Strength Training", "Warm Up", "Stretching"];
     const muscles = ["All", "Biceps", "Triceps", "Chest", "Back", "Legs", "Abs", "Lats", "Hamstrings", "Calves", "Quadriceps", "Trapezius", "Shoulders", "Glutes"];
     const equipment = ["None", "Resistance Bands", "KettleBell", "Dumbbell", "Barbell", "Bench", "Cable Machine", "Pull-Up Bar", "Smith Machine"];
 
@@ -73,21 +71,6 @@ function Sidebar({ populateForm, setPopulateForm }) {
                         ))}
                     </Form>                
 
-                {/* <h6 className="sidebar-title">Exercise Type</h6>
-                    <Form>
-                        {types.map(type => (
-                            <div key={`default-${type}`} className="mb-3">
-                                <Button
-                                    className="button-item"
-                                    variant={filter.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
-                                    onClick={() => handleClick("types", type)}
-                                >
-                                    {type}
-                                </Button>
-                            </div>
-                        ))}
-                    </Form> */}
-                    
                 <h6 className="sidebar-title">Muscle Group</h6>
                     <Form>
                         {muscles.map(muscle => (
@@ -141,21 +124,6 @@ function Sidebar({ populateForm, setPopulateForm }) {
                                 ))}
                             </Form>                
 
-                        {/* <h6 className="sidebar-title">Exercise Type</h6>
-                            <Form>
-                                {types.map(type => (
-                                    <div key={`default-${type}`} className="mb-3">
-                                        <Button
-                                            className="button-item"
-                                            variant={populateForm.types === (type === "All" ? "" : type) ? "primary" : "secondary"}
-                                            onClick={() => handleClick("types", type)}
-                                        >
-                                            {type}
-                                        </Button>
-                                    </div>
-                                ))}
-                            </Form> */}
-                            
                         <h6 className="sidebar-title">Muscle Group</h6>
                             <Form>
                                 {muscles.map(muscle => (
