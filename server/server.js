@@ -23,15 +23,29 @@ app.get('/workouts', (req, res) => {
   switch (req.query != null) {
     case req.query.Intensity_Level != null && req.query.Muscles != null && req.query.Equipment != null:
       url += `Intensity_Level=${req.query.Intensity_Level}&Muscles=${req.query.Muscles}&Equipment=${req.query.Equipment}`
-      console.log(url)
+      // console.log(url)
       break;
     case req.query.Intensity_Level != null && req.query.Muscles != null:
       url += `Intensity_Level=${req.query.Intensity_Level}&Muscles=${req.query.Muscles}`
-      console.log(url)
+      // console.log(url)
       break;
     case req.query.Intensity_Level != null:
       url += `Intensity_Level=${req.query.Intensity_Level}`
-      console.log(url)
+      // console.log(url)
+      break;
+    case req.query.Muscles != null && req.query.Equipment != null:
+      url += `Muscles=${req.query.Muscles}&Equipment=${req.query.Equipment}`
+      // console.log(url)
+      break;
+    case req.query.Muscles != null:
+      url += `Muscles=${req.query.Muscles}`
+      break;
+    case req.query.Intensity_Level != null && req.query.Equipment != null:
+      url += `Intensity_Level=${req.query.Intensity_Level}&Equipment=${req.query.Equipment}`
+      // console.log(url)
+      break;
+    case req.query.Equipment != null:
+      url += `Equipment=${req.query.Equipment}`
   }
 
   console.log(url)
