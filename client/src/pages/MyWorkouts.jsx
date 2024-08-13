@@ -9,30 +9,12 @@ import '../assets/css/myworkouts.css'
 
 function MyWorkouts() {
 
-    const [workouts, setWorkouts] = useState([]);
     const [activeItem, setActiveItem] = useState(null);
-    const [day, setDay] = useState([]);
 
     const handleOpenAccordion = (id) => {
         setActiveItem(id)
         console.log(id)
     }
-
-    useEffect(async () => {
-        try {
-            const response = await fetch('/api/workouts');
-            const data = await response.json();
-
-            console.log(data)
-            console.log(data[0]._id)
-
-            setWorkouts(data);
-            setDay(data[0].day)
-
-        } catch (error) {
-            console.error(error.message)
-        }
-    }, [])
 
     return (
         <>
@@ -41,47 +23,47 @@ function MyWorkouts() {
                 <h1 className='my-workouts-header'>MY WORKOUTS</h1>
 
                 <Accordion>
-                    <Accordion eventKey="0" onClick={(e) => { handleOpenAccordion('sun') }}>
+                    <Accordion.Item eventKey="0" onClick={(e) => { handleOpenAccordion('Sunday') }}>
                         <Accordion.Header >Sunday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
-                    </Accordion>
+                    </Accordion.Item>
 
-                    <Accordion.Item eventKey="1" onClick={(e) => { handleOpenAccordion('mon') }}>
+                    <Accordion.Item eventKey="1" onClick={(e) => { handleOpenAccordion('Monday') }}>
                         <Accordion.Header >Monday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="2" onClick={(e) => { handleOpenAccordion('tue') }}>
+                    <Accordion.Item eventKey="2" onClick={(e) => { handleOpenAccordion('Tuesday') }}>
                         <Accordion.Header>Tuesday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="3" onClick={(e) => { handleOpenAccordion('wed') }}>
+                    <Accordion.Item eventKey="3" onClick={(e) => { handleOpenAccordion('Wednesday') }}>
                         <Accordion.Header>Wednesday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="4" onClick={(e) => { handleOpenAccordion('thurs') }}>
+                    <Accordion.Item eventKey="4" onClick={(e) => { handleOpenAccordion('Thursday') }}>
                         <Accordion.Header>Thursday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards  activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="5" onClick={(e) => { handleOpenAccordion('fri') }}>
+                    <Accordion.Item eventKey="5" onClick={(e) => { handleOpenAccordion('Friday') }}>
                         <Accordion.Header>Friday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards  activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="6" onClick={(e) => { handleOpenAccordion('sat') }}>
+                    <Accordion.Item eventKey="6" onClick={(e) => { handleOpenAccordion('Saturday') }}>
                         <Accordion.Header>Saturday</Accordion.Header>
                         <Accordion.Body>
-                            <MyWorkoutCards day={day} setDay={setDay} workouts={workouts} setWorkouts={setWorkouts} activeItem={activeItem} />
+                            <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
