@@ -1,20 +1,19 @@
 import { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Form, Button, Alert, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { createUser } from '../utils/API'; 
 import Auth from '../utils/auth';
 import NavTabs from '../Components/NavTabs'
-import Card from 'react-bootstrap/Card';
 import '../assets/css/login.css'
 
 const SignupForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   // set state for form validation
   const [validated, setValidated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-
 
   //handles changes in form input fields
   const handleInputChange = (event) => {
@@ -43,7 +42,7 @@ const SignupForm = () => {
 
       const { token, user } = await response.json();
       console.log(user);
-      Auth.login(token);
+      Auth.signup(token);
       
       // grab user id from user and save to session storage for questionnaire use
       sessionStorage.setItem('userId', user._id);
@@ -100,13 +99,7 @@ const SignupForm = () => {
             </Form.Group>
             <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
                 SIGN UP
-            </Button>
-            {/* <Link to='/Questionnaire'>
-              <Button disabled={!(userFormData.email && userFormData.password)} type='submit' className='btn signup-btn'>
-                SIGN UP
-              </Button>
-            </Link> */}
-            
+            </Button>  
           </Form>
         </Card>
       </div>

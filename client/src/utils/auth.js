@@ -42,6 +42,12 @@ class AuthService {
     //DO NOT CHANGE THIS URL/COULD BREAK CLIENT SIDE ROUTING ON DEPLOYMENT:)
      window.location.assign('/Homepage');
   }
+  signup(idToken) {
+    // Saves user token to localStorage
+    localStorage.setItem('id_token', idToken);
+    //DO NOT CHANGE THIS URL/COULD BREAK CLIENT SIDE ROUTING ON DEPLOYMENT:)
+     window.location.assign('/Questionnaire');
+  }
 
   logout() {
     // Clear user token and profile data from localStorage

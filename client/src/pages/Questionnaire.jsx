@@ -13,6 +13,9 @@ const Questionnaire = () => {
   const [showEquipment, setShowEquipment] = useState(false);
   const [showConsistency, setShowConsistency] = useState(false);
 
+//   const location = useLocation();
+//   const { user } = location.state;
+
   //shows Equipment after selection from previous question has been made
   const handleTypeInput = (e) => {
     const value = e.target.value;
