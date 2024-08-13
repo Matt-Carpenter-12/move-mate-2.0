@@ -19,6 +19,7 @@
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "nodemailer": "^6.9.14",
+    "react-calendar": "^5.0.0",
     "uuid": "^10.0.0"
   }
 }

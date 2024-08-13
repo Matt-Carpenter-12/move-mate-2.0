@@ -42,8 +42,10 @@ function Login() {
 
       const { token, user } = await response.json();
       console.log(user);
-      sessionStorage.setItem('userId', user._id);
       Auth.login(token);
+
+      sessionStorage.setItem('userId', user._id);
+      
     } catch (err) {
       console.error(err);
       setShowAlert(true);
