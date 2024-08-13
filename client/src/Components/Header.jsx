@@ -7,13 +7,14 @@ import Auth from '../utils/auth'
 
 
 const Header = () => {
+  // effect to make header change color when you scroll
     const [currentLink, setCurrentLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
 
-    const handleInputChange = (event)=> {
-console.log(event.target.value) 
+    // const handleInputChange = (event)=> {
+    //   console.log(event.target.value) 
+    // }
 
-    }
     useEffect(() => {
         const onScroll = () => {
             if (window.scrollY > 50) {
@@ -58,7 +59,7 @@ console.log(event.target.value)
                 <Nav.Link
                   href="/Log"
                   className={currentLink === '/Log' ? 'nav-link active' : 'nav-link'}
-                  onClick={() => onUpdateCurrentLink('Log')}>
+                  onClick={() => onUpdateCurrentLink('/Log')}>
                   WORKOUT LOG
                 </Nav.Link>
                 <Nav.Link
@@ -68,15 +69,12 @@ console.log(event.target.value)
                   LOG OUT
                 </Nav.Link>
                 </Nav>
-                {/* <span className="navbar-text">
-                  <button className="vvd logout-btn" onClick={()=>console.log('Ready to log out')}><a href='/'><span>LOG OUT</span></a></button>
-                </span> */}
-                <Form inline='true'>
+                {/* <Form inline='true'>
                   <Row>
                     <Col xs="auto">
                       <Form.Control
                         type="text"
-                        placeholder="Search Exercises..."
+                        placeholder="Search for an Exercise..."
                         className="mr-sm-2 search-input"
                         onChange={handleInputChange}
                       />
@@ -85,7 +83,7 @@ console.log(event.target.value)
                       <Button type="submit" className="search-btn btn"><img src={search} alt="search icon" /></Button>
                     </Col>
                   </Row>
-                </Form>
+                </Form> */}
             </Navbar.Collapse>
           </Container>
         </Navbar>
