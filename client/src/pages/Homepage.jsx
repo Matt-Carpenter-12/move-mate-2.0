@@ -4,6 +4,7 @@ import Sidebar from '../Components/Sidebar';
 import GetWorkouts from '../Components/GetWorkouts';
 import { Col, Container, Row, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import DayCard from '../Components/DayCard';
+import { CiFaceSmile } from 'react-icons/ci';
 
 
 function Homepage() {
@@ -13,6 +14,16 @@ function Homepage() {
         // console.log(day);
         setSelectedDay(day);
     };
+
+    const [clicked, setClick] = useState(false)
+
+    const handleSidebar = () => {
+        if(clicked === false) {
+            setClick(true)
+        } else {
+            setClick(false)
+        }
+    }
     
     const [populateForm, setPopulateForm] = useState({ level: "", types: "", muscles: "", equipment: "" });
 
@@ -40,6 +51,7 @@ function Homepage() {
                 console.error("Error:", error);
             }
         };
+        console.log(populateForm)
 
         getData();
     }, []);
@@ -50,8 +62,8 @@ function Homepage() {
         <section className="homepage">
             <Container>
                 <Row>
-                    <Col xs={12} lg={2} className='sidebar-col'>
-                        <Sidebar populateForm={populateForm} setPopulateForm={setPopulateForm}/>
+                    <Col onClick={handleSidebar} xs={12} lg={2} className='sidebar-col'>
+                        <Sidebar  populateForm={populateForm} setPopulateForm={setPopulateForm}/>
                     </Col>
                     <Col xs={12} lg={10} className='workouts-col'>
                     <h1 className='workouts-header'><span className="accent-color">ADD AN EXERCISE </span>TO YOUR CUSTOM WORKOUT</h1>
@@ -73,7 +85,7 @@ function Homepage() {
                         </Dropdown>
                         </Col>
                     </Row>
-                        <GetWorkouts populateForm={populateForm} setPopulateForm={setPopulateForm} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
+                        <GetWorkouts clicked={clicked} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
                     </Col>
                 </Row>
             </Container>

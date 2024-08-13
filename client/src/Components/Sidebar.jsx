@@ -16,6 +16,7 @@ function Sidebar({ populateForm, setPopulateForm }) {
 
     const handleClick = (key, value) => {
         setFilter({ ...filter, [key]: value === "All" || value === "All" ? "" : value });
+        localStorage.setItem(key, JSON.stringify(value))
     }
 
     const levels = ["All", "Beginner", "Intermediate", "Expert"];

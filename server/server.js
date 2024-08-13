@@ -17,23 +17,20 @@ app.use(cors());
 
 //Fetchs the workout options from the third party api
 app.get('/workouts', (req, res) => {
-  //what was here before with original API / TODO: need to change hardcoded at the end
-  //ORIGINAL: const url = 'https://work-out-api1.p.rapidapi.com/search?Muscles=chest&Intensity_Level=Beginner';
+  // const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${req.query.Muscles}&Intensity_Level=${req.query.Intensity_Level}`;
 
-  // const url = 'https://api.api-ninjas.com/v1/exercises';
+  // const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=Biceps&Intensity_Level=Beginner`
 
-  const url =`https://api.api-ninjas.com/v1/exercises?difficulty=${req.query.difficulty}&muscle=${req.query.muscle}`;
 
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-Api-Key': process.env.API_KEY,
-            //what was here before with original API
-            // ORIGINAL:'x-rapidapi-key': process.env.API_KEY,
-            // ORIGINAL:'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
-        }
+  const options = {
+    method: 'GET',
+    headers: {
+      // 'X-Api-Key': process.env.API_KEY,
+      'x-rapidapi-key': process.env.API_KEY,
+      'x-rapidapi-host': 'work-out-api1.p.rapidapi.com'
     }
-    fetch(url, options)
+  }
+  fetch(url, options)
     .then(response => response.json())
     .then(data => {
       const updatedData = data.map(exercise => ({
