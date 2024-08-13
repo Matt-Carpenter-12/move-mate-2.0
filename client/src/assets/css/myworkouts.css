@@ -19,3 +19,12 @@
 .accordion {
     margin-bottom: 35px;
 }
+
+.my-workout-card {
+    border-radius: 6px;
+}
+
+.my-workout-card-body {
+    border-radius: 6px;
+
+}
