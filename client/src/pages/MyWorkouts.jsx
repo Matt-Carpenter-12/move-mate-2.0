@@ -22,46 +22,46 @@ function MyWorkouts() {
             <div className="my-workouts">
                 <h1 className='my-workouts-header'>MY WORKOUTS</h1>
 
-                <Accordion>
+                <Accordion className='accordion'>
                     <Accordion.Item eventKey="0" onClick={(e) => { handleOpenAccordion('Sunday') }}>
-                        <Accordion.Header >Sunday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Sunday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
 
                     <Accordion.Item eventKey="1" onClick={(e) => { handleOpenAccordion('Monday') }}>
-                        <Accordion.Header >Monday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Monday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2" onClick={(e) => { handleOpenAccordion('Tuesday') }}>
-                        <Accordion.Header>Tuesday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Tuesday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3" onClick={(e) => { handleOpenAccordion('Wednesday') }}>
-                        <Accordion.Header>Wednesday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Wednesday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="4" onClick={(e) => { handleOpenAccordion('Thursday') }}>
-                        <Accordion.Header>Thursday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Thursday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards  activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="5" onClick={(e) => { handleOpenAccordion('Friday') }}>
-                        <Accordion.Header>Friday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Friday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards  activeItem={activeItem} />
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="6" onClick={(e) => { handleOpenAccordion('Saturday') }}>
-                        <Accordion.Header>Saturday</Accordion.Header>
+                        <Accordion.Header className='acc-item'>Saturday</Accordion.Header>
                         <Accordion.Body>
                             <MyWorkoutCards activeItem={activeItem} />
                         </Accordion.Body>

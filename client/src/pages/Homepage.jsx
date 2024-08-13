@@ -56,6 +56,9 @@ function Homepage() {
         getData();
     }, []);
 
+    const showSelectedDay = <p>Adding to {<span className='accent-color'>{selectedDay}'s</span>} Workout</p>
+
+
     return (
         <>
         <Header />
@@ -65,7 +68,7 @@ function Homepage() {
                     <Col onClick={handleSidebar} xs={12} lg={2} className='sidebar-col'>
                         <Sidebar  populateForm={populateForm} setPopulateForm={setPopulateForm}/>
                     </Col>
-                    <Col xs={12} lg={10} className='workouts-col'>
+                    <Col xs={12} lg={10} className='workouts-col' align="center">
                     <h1 className='workouts-header'><span className="accent-color">ADD AN EXERCISE </span>TO YOUR CUSTOM WORKOUT</h1>
                     <Row>
                         <Col lg={12}>
@@ -83,6 +86,9 @@ function Homepage() {
                                 <Dropdown.Item href="#" className='day-item' onClick={ () => handleSelectDay('Saturday')}>SATURDAY</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                        <h5 className='day-subtitle'>
+                           { !selectedDay ? "" : showSelectedDay }
+                        </h5>
                         </Col>
                     </Row>
                         <GetWorkouts clicked={clicked} selectedDay={selectedDay} setSelectedDay={setSelectedDay}/>
