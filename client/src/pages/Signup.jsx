@@ -7,6 +7,7 @@ import NavTabs from '../Components/NavTabs'
 import '../assets/css/login.css'
 
 const SignupForm = () => {
+  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   // set state for form validation
@@ -41,10 +42,11 @@ const SignupForm = () => {
 
       const { token, user } = await response.json();
       console.log(user);
+      sessionStorage.setItem('userId', user._id);
       Auth.signup(token);
       
       // grab user id from user and save to session storage for questionnaire use
-      sessionStorage.setItem('userId', user._id);
+      
       
     } catch (err) {
       console.error(err);
