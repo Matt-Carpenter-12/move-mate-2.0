@@ -111,7 +111,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                         muscles: exercise.Muscles,
                         equipment: exercise.Equipment,
                         intensity_level: exercise.Intensity_Level,
-                        explanation: exercise.Explanation
+                        explanation: exercise.Explaination
                     }
                 })
             });
