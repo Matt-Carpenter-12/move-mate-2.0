@@ -30,20 +30,36 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
         const equipment = JSON.parse(localStorage.getItem('equipment'))
 
         switch (true) {
-            case level != null && level != 'All' && muscle === null && equipment === null:
+            case level != null && level != 'All'  && muscle === null && muscle != 'All' && equipment === null :
                 url += `Intensity_Level=${level}`
-                console.log(url)
+                // console.log(url)
                 break;
             case level != null && level != 'All' && muscle != null && muscle != 'All' && equipment === null:
                 url += `Intensity_Level=${level}&Muscles=${muscle}`
                 // console.log(url)
                 break;
-            case level != null && level != 'All' &&  muscle != null && muscle != 'All' && equipment != null && equipment != 'All':
+            case level != null && level != 'All' && muscle != null && muscle != 'All' && equipment != null:
                 url += `Intensity_Level=${level}&Muscles=${muscle}&Equipment=${equipment}`
+                // console.log(url)
+                break;
+            case level === null || level === 'All' && muscle != null && muscle != 'All' && equipment === null:
+                url += `Muscles=${muscle}`
+                // console.log(url)
+                break;
+            case  level === null || level === 'All' && muscle != null && muscle != 'All' && equipment != null:
+                url += `Muscles=${muscle}&Equipment=${equipment}`
+                // console.log(url)
+                break;
+            case level != null && level != 'All' && muscle === null || muscle === 'All' && equipment != null:
+                url += `Intensity_Level=${level}&Equipment=${equipment}`
             // console.log(url)
+            case  level === null && level === 'All' && muscle === null && muscle === 'All' && equipment != null:
+                url += `Equipment=${equipment}`
+                // console.log(url)
+                break;
         }
         console.log(url)
-        
+
         fetch(url)
             .then(response => {
                 if (response.ok) {
@@ -131,6 +147,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                     <Card.Body className='exercise-card-body'>
                         <Card.Title>{w.WorkOut}</Card.Title>
                         <Card.Subtitle className='mb-2'>{w.Muscles}</Card.Subtitle>
+                        <Card.Subtitle className='mb-2'>{w.Equipment}</Card.Subtitle>
                         <Card.Text>{w.Intensity_Level}</Card.Text>
                         <Button onClick={(event) => { event.preventDefault(); handleAddedExercise(w) }} disabled={isDisabled} className='btn exercise-card-btn accent-btn'><CiCirclePlus /></Button>
                         <Button onClick={() => handleShow(w)} className='btn exercise-card-btn details-btn'>Details <FiArrowRightCircle /></Button>
@@ -142,7 +159,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                 {selectedExercise && (
                     <>
                         <Modal.Header closeButton>
-                            
+
                         </Modal.Header>
                         <Modal.Body>
                             <Container>
