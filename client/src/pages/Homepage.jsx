@@ -31,6 +31,7 @@ function Homepage() {
         const getData = async () => {
             try {
                 const userId = sessionStorage.getItem('userId');
+                console.log(userId)
                 const response = await fetch(`/api/users/${userId}`, {
                     method: 'GET',
                     headers: {
@@ -46,6 +47,7 @@ function Homepage() {
                 console.log("Response Data:", data);
 
                 const equipment = JSON.parse(data.form[0].equipment);
+                console.log('Equipment:', data.form[0].equipment)
                 setPopulateForm(previous => ({ ...previous, level: data.form[0].fitnessLevel, equipment: equipment}));
             } catch (error) {
                 console.error("Error:", error);

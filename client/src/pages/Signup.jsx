@@ -7,7 +7,6 @@ import NavTabs from '../Components/NavTabs'
 import '../assets/css/login.css'
 
 const SignupForm = () => {
-  const navigate = useNavigate();
   // set initial form state
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   // set state for form validation
