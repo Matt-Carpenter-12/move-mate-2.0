@@ -17,6 +17,23 @@ app.use(cors());
 
 //Fetchs the workout options from the third party api
 app.get('/workouts', (req, res) => {
+  let url = `https://work-out-api1.p.rapidapi.com/search?`
+
+  switch (req.query != null) {
+    case req.query.Intensity_Level != null && req.query.Muscles != null && req.query.Equipment != null:
+      url += `Intensity_Level=${req.query.Intensity_Level}&Muscles=${req.query.Muscles}&Equipment=${req.query.Equipment}`
+      console.log(url)
+      break;
+    case req.query.Intensity_Level != null && req.query.Muscles != null:
+      url += `Intensity_Level=${req.query.Intensity_Level}&Muscles=${req.query.Muscles}`
+      console.log(url)
+      break;
+    case req.query.Intensity_Level != null:
+      url += `Intensity_Level=${req.query.Intensity_Level}`
+      console.log(url)
+  }
+
+  console.log(url)
   // const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${req.query.Muscles}&Intensity_Level=${req.query.Intensity_Level}`;
 
   // const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=Biceps&Intensity_Level=Beginner`

@@ -19,39 +19,45 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
         setShow(true);
     };
 
-        const data = JSON.parse(localStorage.getItem('muscle'))
-
-    if(data != '') {
-        console.log(data)
-    }
-
 
     useEffect(() => {
-        
+
         let url = 'http://localhost:3001/workouts?';
-
-        const muscle = JSON.parse(localStorage.getItem('muscle'))
-        console.log(data)
-
         const level = JSON.parse(localStorage.getItem('level'))
-        console.log(level)
-
+        // console.log(level)
+        const muscle = JSON.parse(localStorage.getItem('muscle'))
+        // console.log(data)
         const equipment = JSON.parse(localStorage.getItem('equipment'))
 
-        
-        switch(level != null) {
-            case level != null && muscle === null && equipment === null:
+        switch (true) {
+            case level != null && level != 'All' && muscle === null && equipment === null:
                 url += `Intensity_Level=${level}`
                 console.log(url)
-              break;
-            case level != null && muscle != null && equipment === null:
-              url += `Intensity_Level=${level}&Muscles=${muscle}`
-              console.log(url)
-              break;
-              case level != null && muscle != null && equipment != null:
-              url += `Intensity_Level=${level}&Muscles=${muscle}&Equipment=${equipment}`
-              console.log(url)
-            }
+                break;
+            case level != null && level != 'All' && muscle != null && muscle != 'All' && equipment === null:
+                url += `Intensity_Level=${level}&Muscles=${muscle}`
+                // console.log(url)
+                break;
+            case level != null && level != 'All' &&  muscle != null && muscle != 'All' && equipment != null && equipment != 'All':
+                url += `Intensity_Level=${level}&Muscles=${muscle}&Equipment=${equipment}`
+            // console.log(url)
+        }
+        console.log(url)
+        
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    console.log('response:', response)
+                    response.status(error);
+                }
+            })
+            .then(data => {
+                console.log('data:', data)
+                setExercises(data);
+            })
+            .catch(err => console.error('Fetch error:', err.message));
 
     }, [clicked])
 
@@ -67,19 +73,6 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
     }, [selectedDay])
 
     let url = 'http://localhost:3001/workouts?';
-    // console.log(populateForm.level)
-    // Updates the url 
-    // if (populateForm.level != '') {
-    //     url += `Intensity_Level=${populateForm.level}`
-    // }
-    // if (populateForm.muscle != '') {
-    //     url += `&Muscles=${populateForm.muscle}`
-    //     console.log(url)
-    // }
-
-    // const options = {
-    //     method: 'GET'
-    // }
 
     //Fetches the data from the workout api
     useEffect(() => {
@@ -158,9 +151,9 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                                         <h2>{selectedExercise.WorkOut}</h2>
                                         <h4>Targets <span className="accent-color">{selectedExercise.Muscles}</span></h4>
                                         <h6 className='equipment-subtitle'>Equipment Needed: {selectedExercise.Equipment}</h6>
-                                        <h6 className='modal-subtitle'>Beginner Sets: {selectedExercise.Beginner_Sets}</h6>
-                                        <h6 className='modal-subtitle'>Intermediate Sets: {selectedExercise.Intermediate_Sets}</h6>
-                                        <h6 className='modal-subtitle'>Expert Sets: {selectedExercise.Expert_Sets}</h6>
+                                        <h6 className='modal-subtitle'>Beginner Sets: {selectedExercise["Beginner Sets"]}</h6>
+                                        <h6 className='modal-subtitle'>Intermediate Sets: {selectedExercise["Intermediate Sets"]}</h6>
+                                        <h6 className='modal-subtitle'>Expert Sets: {selectedExercise["Expert Sets"]}</h6>
                                     </Col>
                                     {/* <Col xs={12} md={6}>
                                         <video controls width='448' height='250'>
@@ -169,7 +162,7 @@ function ExerciseCard({ clicked, selectedDay, setSelectedDay }) {
                                         </video>
                                     </Col> */}
                                 </Row>
-                                <p>Instructions: {selectedExercise.Explanation}</p>
+                                <p>Instructions: {selectedExercise.Explaination}</p>
                                 {/* <p>Long Explanation: {selectedExercise.Long_Explanation}</p> */}
                             </Container>
                         </Modal.Body>
